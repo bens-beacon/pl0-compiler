@@ -6,37 +6,37 @@
 
 #include "parser.h"
 
-tProc* AktProc;											/* Aktuelle Prozedur			*/
+tProc* AktProc;															/* Aktuelle Prozedur	 		*/
 
 /* ---- BÖGEN ------------------------------------------------------- */
 /* Programm 	--------------------------------------- */
 tBog gProg[]=
 {
-/* 0 */ {BgGr,{(ul)iBlock	}, NULL, 1, 0}, /* Block		*/	
+/* 0 */ {BgGr,{(ul)iBlock	}, NULL, 1, 0}, 	/* Block		*/	
 /* 1 */ {BgSy,{(ul)'.'		},  pr1, 2, 0}, 	/* . 			*/	
-/* 2 */ {BgEn,{(ul)0			}, NULL, 0, 0}  /* Ende 		*/	
+/* 2 */ {BgEn,{(ul)0			}, NULL, 0, 0}  	/* Ende 		*/	
 };
 /* Block			--------------------------------------- */
 tBog gBlock[]=
 {
-/* 0 */ {BgSy,{(ul)zCST		}, NULL, 4, 1}, /* CONST		*/	
-/* 1 */ {BgSy,{(ul)zVAR		}, NULL, 9, 2}, /* VAR			*/
-/* 2 */ {BgSy,{(ul)zPRC		}, NULL,12,16}, /* Procedure*/
-/* 3 */ {BgGr,{(ul)iState	}, NULL,17, 0}, /* Statement*/
-/* 4 */ {BgMo,{(ul)mcIdent}, NULL, 5, 0}, /* Ident		*/		
-/* 5 */ {BgSy,{(ul)'='		}, NULL, 6, 0}, /*   =			*/		
-/* 6 */ {BgMo,{(ul)mcNum	}, NULL, 8, 0}, /* Numeral	*/
-/* 7 */ {BgSy,{(ul)','		}, NULL, 4, 0}, /*   ,			*/		
-/* 8 */ {BgSy,{(ul)';'		}, NULL, 1, 7}, /*   ;			*/
-/* 9 */ {BgMo,{(ul)mcIdent}, NULL,11, 0}, /* Ident		*/
-/*10 */ {BgSy,{(ul)','		}, NULL, 9, 0}, /*   ,			*/
-/*11 */ {BgSy,{(ul)';'		}, NULL, 2,10}, /*   ;			*/
-/*12 */ {BgMo,{(ul)mcIdent}, NULL,13, 0}, /* Ident		*/
-/*13 */ {BgSy,{(ul)';'		}, NULL,14, 0}, /*   ;			*/	
-/*14 */ {BgGr,{(ul)iBlock	}, NULL,15, 0}, /* Block		*/	
-/*15 */ {BgSy,{(ul)';'		}, NULL, 2, 0}, /*   ;			*/
-/*16 */ {BgNl,{(ul)0			},  bl6, 3, 0}, /* Nilbogen */
-/*17 */ {BgEn,{(ul)0			}, NULL, 0, 0}  /* Ende 		*/
+/* 0 */ {BgSy,{(ul)zCST		}, NULL, 4, 1}, 	/* CONST		*/	
+/* 1 */ {BgSy,{(ul)zVAR		}, NULL, 9, 2}, 	/* VAR			*/
+/* 2 */ {BgSy,{(ul)zPRC		}, NULL,12,16}, 	/* Procedure*/
+/* 3 */ {BgGr,{(ul)iState	}, NULL,17, 0}, 	/* Statement*/
+/* 4 */ {BgMo,{(ul)mcIdent}, NULL, 5, 0}, 	/* Ident		*/		
+/* 5 */ {BgSy,{(ul)'='		}, NULL, 6, 0}, 	/*   =			*/		
+/* 6 */ {BgMo,{(ul)mcNum	}, NULL, 8, 0}, 	/* Numeral	*/
+/* 7 */ {BgSy,{(ul)','		}, NULL, 4, 0}, 	/*   ,			*/		
+/* 8 */ {BgSy,{(ul)';'		}, NULL, 1, 7}, 	/*   ;			*/
+/* 9 */ {BgMo,{(ul)mcIdent}, NULL,11, 0}, 	/* Ident		*/
+/*10 */ {BgSy,{(ul)','		}, NULL, 9, 0}, 	/*   ,			*/
+/*11 */ {BgSy,{(ul)';'		}, NULL, 2,10}, 	/*   ;			*/
+/*12 */ {BgMo,{(ul)mcIdent}, NULL,13, 0}, 	/* Ident		*/
+/*13 */ {BgSy,{(ul)';'		}, NULL,14, 0}, 	/*   ;			*/	
+/*14 */ {BgGr,{(ul)iBlock	}, NULL,15, 0}, 	/* Block		*/	
+/*15 */ {BgSy,{(ul)';'		}, NULL, 2, 0}, 	/*   ;			*/
+/*16 */ {BgNl,{(ul)0			},  bl6, 3, 0}, 	/* Nilbogen */
+/*17 */ {BgEn,{(ul)0			}, NULL, 0, 0}  	/* Ende 		*/
 };
 /* Statement  --------------------------------------- */
 tBog gState[]=

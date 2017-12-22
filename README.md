@@ -1,4 +1,4 @@
-# Copmiler für PL0
+# Compiler für PL0
 
 ## Was ist noch zu tun?
 
@@ -75,18 +75,19 @@ alle dazugehörigen Parameter mit angehängt. Die Funktionen findet man
 im code.h
 
 Beispiel für entryproc - Hauptprozedur:
----------------------
+
+|--------------------
 | 1A | ?? | 1 | 4 ...
----------------------
+|-------------------
 
 1A ... entryproc
 ?? ... Anzahl Zeichen später eingetragen
  1 ... Variablelänge
 
 Beispiel für Variabel speichern
-----------------
+|--------------
 | 03 | 0000 | ...
-----------------
+|--------------
 
 03 ... pushvarlocal
 0000 ... Index a
