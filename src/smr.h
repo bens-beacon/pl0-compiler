@@ -52,4 +52,16 @@ int ex3();
 int te1();
 int te2();
 
+int fa1();
+int fa2();
+
+int co1();
+int co2();
+int co3();
+int co4();
+int co5();
+int co6();
+int co7();
+int co8();
+
 #endif

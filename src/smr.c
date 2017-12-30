@@ -9,6 +9,7 @@
 /* Aktuelles													*/
 char* pName;
 long Val;
+int compid;
 
 /* Ist Konstantenname schon vorhanden */
 int bl1()
@@ -226,3 +227,109 @@ int te2()
 	return OK;
 }
 
+/* Faktor Konstante										*/
+int fa1()
+{
+	tConst* Const_tmp = searchConst(Val);		
+	if(Const_tmp == NULL)											/* Konstenwert vorhanden?	*/
+	{																					/* Nicht Vorhanden, erste */
+		tBez* BezConst = createBezConst(AktProc,Val, pName);
+		insertend(AktProc->pLBez,BezConst);
+		Const_tmp = BezConst->pObj;
+		code(6,Const_tmp->Idx);									/* Konstante anlegen 			*/
+	}
+	else 																			/* Vorhanden, Index übern */
+	{
+
+	}
+	return OK;
+}
+
+/* Faktor anlegen											*/
+int fa2()
+{
+	tBez * Bez_tmp = globalsearchBEZ(AktProc,pName);
+	if( Bez_tmp == NULL)
+	{
+		printf(ANSI_COLOR_RED " >> Variable is not available!\n");	
+		exit(EXIT_FAILURE);			
+	}
+	else
+	{
+		if(Bez_tmp->Kz == KzVar)
+		{
+			
+			tVar* Var_tmp = Bez_tmp->pObj;
+			if(AktProc->IdxProc==0) code(4,Var_tmp->Dspl);				/* Main 	*/
+			else if(AktProc->IdxProc==0) code(4,Var_tmp->Dspl);								// <--- dieser fall ist nicht einleuchtend
+			else {code(3,Var_tmp->Dspl);}													/* Local	*/			
+		}
+		else if(Bez_tmp->Kz == KzConst)
+		{
+			tConst* Const_tmp = Bez_tmp->pObj;
+			code(6,Const_tmp->Idx);								/* Konstante anlegen 			*/
+		}
+		else if(Bez_tmp->Kz == KzProc)
+		{
+			printf(ANSI_COLOR_RED " >> Its a Proc not a Variable!\n");	
+			exit(EXIT_FAILURE);				
+		}		
+	} 
+	return OK;
+}
+
+/* Condition 													*/
+int co1()
+{
+	code(11);																	/* odd										*/
+	return OK;
+}
+
+/* = 																	*/
+int co2()
+{
+	compid = 16;															/* cmpEQ									*/
+	return OK;
+}
+
+/* # 																	*/
+int co3()
+{
+	compid = 17;															/* cmpNE									*/
+	return OK;
+}
+
+/* < 																	*/
+int co4()
+{
+	compid = 18;															/* cmpLT									*/
+	return OK;
+}
+
+/* <= 																*/
+int co5()
+{
+	compid = 20;															/* cmpLE									*/
+	return OK;
+}
+
+/* >																	*/
+int co6()
+{
+	compid = 19;															/* cmpGT									*/
+	return OK;
+}
+
+/* >= 																	*/
+int co7()
+{
+	compid = 21;															/* cmpGE									*/
+	return OK;
+}
+
+/* Codegenerierung											*/
+int co8()
+{
+	code(compid);
+	return OK;
+}
