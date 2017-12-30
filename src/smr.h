@@ -45,6 +45,11 @@ int st8();
 int st9();
 int st10();
 
+int ex1();
+int ex2();
+int ex3();
 
+int te1();
+int te2();
 
 #endif

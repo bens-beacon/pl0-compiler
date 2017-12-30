@@ -6,7 +6,7 @@
 
 #include "smr.h"
 
-/* Aktuelles								*/
+/* Aktuelles													*/
 char* pName;
 long Val;
 
@@ -124,9 +124,9 @@ int st1()
 		{
 			
 			tVar* Var_tmp = Bez_tmp->pObj;
-			if(AktProc->IdxProc==0) code(04,Var_tmp->Dspl);				/* Main 	*/
-			else if(AktProc->IdxProc==0) code(04,Var_tmp->Dspl);							// <--- dieser fall ist nicht einleuchtend
-			else {code(03,Var_tmp->Dspl);}												/* Local	*/			
+			if(AktProc->IdxProc==0) code(4,Var_tmp->Dspl);				/* Main 	*/
+			else if(AktProc->IdxProc==0) code(4,Var_tmp->Dspl);								// <--- dieser fall ist nicht einleuchtend
+			else {code(3,Var_tmp->Dspl);}													/* Local	*/			
 		}
 		else if(Bez_tmp->Kz == KzConst)
 		{
@@ -145,18 +145,84 @@ int st1()
 /* Wertzuweisung RS										*/
 int st2()
 {
-		code(07);																/* StoreValue							*/
-		return OK;
+	code(7);																	/* StoreValue							*/
+	return OK;
 }
 
+/* Eingabe	 													*/
+int st9()
+{
+	tBez * Bez_tmp = globalsearchBEZ(AktProc,pName);
+	if( Bez_tmp == NULL)
+	{
+		printf(ANSI_COLOR_RED " >> Variable is not available!\n");	
+		exit(EXIT_FAILURE);			
+	}
+	else
+	{
+		if(Bez_tmp->Kz == KzVar)
+		{
+			
+			tVar* Var_tmp = Bez_tmp->pObj;
+			if(AktProc->IdxProc==0) code(4,Var_tmp->Dspl);				/* Main 	*/
+			else if(AktProc->IdxProc==0) code(4,Var_tmp->Dspl);								// <--- dieser fall ist nicht einleuchtend
+			else {code(3,Var_tmp->Dspl);}													/* Local	*/	
+			code(9);																							/* GETVAL */		
+		}
+		else if(Bez_tmp->Kz == KzConst)
+		{
+			printf(ANSI_COLOR_RED " >> Its a Const not a Variable!\n");	
+			exit(EXIT_FAILURE);					
+		}
+		else if(Bez_tmp->Kz == KzProc)
+		{
+			printf(ANSI_COLOR_RED " >> Its a Proc not a Variable!\n");	
+			exit(EXIT_FAILURE);				
+		}		
+	}
+	return OK;
+	
+}
 
+/* Ausgabe 														*/
+int st10()
+{
+	code(8);																	/* PUTVAL									*/									
+	return OK;
+}
 
+/* Vorzeichen Minus										*/
+int ex1()
+{
+	code(10);																	/* vzMinus								*/
+	return OK;
+}
 
+/* Addieren														*/
+int ex2()
+{
+	code(12);																	/* opAdd									*/
+	return OK;
+}
 
+/* Subtrahieren												*/
+int ex3()
+{
+	code(13);																	/* opSub									*/
+	return OK;
+}
 
+/* Mulitplizieren											*/
+int te1()
+{
+	code(14);																	/* opMud									*/
+	return OK;
+}
 
-
-
-
-
+/* Dividieren													*/
+int te2()
+{
+	code(15);																	/* opDiv									*/
+	return OK;
+}
 

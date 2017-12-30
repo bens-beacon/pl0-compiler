@@ -2,13 +2,12 @@
 
 ## Was ist noch zu tun?
 
-* Für die Ausgabedatei gibt es ein Struct vCode. Ähnlich wie VConst. Wird am Anfang erstellt.
-* Liste für Label fehlt noch -> wie funktionieren sie?
+* Liste für Label fehlt noch -> Erklärung File Beck.
 * Löschen ist noch unklar! Nur die aktuelle Procedur oder alles löschen?
 * Wann wird das Codefile geöffnet und geschlossen? -> Momentan in main und nicht jedesmal
-* Codelänge wo bekomme ich diese her?
+* Codelänge wo bekomme ich diese her? Zeilen Spalten gezählt?
 * Fehler bei Funktion Codeout. Die Variable AktProc wird nicht gesetzt
-* In der SMR sind pName AktProc Val gobal definiert... richtig?
+* In der SMR sind pName, AktProc, Val gobal definiert... richtig?
 
 ## Dateien
 
