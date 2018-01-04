@@ -3,11 +3,15 @@
 ## Was ist noch zu tun?
 
 * Liste für Label fehlt noch -> Erklärung File Beck.
+
+### Fragen
+
 * Löschen ist noch unklar! Nur die aktuelle Procedur oder alles löschen?
 * Wann wird das Codefile geöffnet und geschlossen? -> Momentan in main und nicht jedesmal
 * Codelänge wo bekomme ich diese her? Zeilen Spalten gezählt?
 * Fehler bei Funktion Codeout. Die Variable AktProc wird nicht gesetzt
 * In der SMR sind pName, AktProc, Val gobal definiert... richtig?
+* Für was braucht man den Fall PushAdrVarGlobal?
 
 ## Dateien
 
@@ -96,12 +100,14 @@ Beispiel für Variabel speichern
 
 ### Wichtig
 
-Namen, also Prozedurnamen, Variablenamen werden nur innerhalb der aktuellen Prozedur gesucht. Sie gelten ja
-nur für diesen Bereich.  
+Namen, also Prozedurnamen, Variablenamen werden nur innerhalb der 
+aktuellen Prozedur gesucht. Sie gelten ja nur für diesen Bereich.  
 
 ### Label - While / IF
-Bei einer WHILE-Schleife wird in die die Codeliste ein label gesetzt. 
-Ist aber noch etwas unklar. 
+
+Labels merken sich den aktuellen Stand des Schreibzeigers.
+Werden bei IF und WHILE verwendet. Fürdie Labels gibt es eine Liste,
+Aufbau wie ein Keller.
 
 
 

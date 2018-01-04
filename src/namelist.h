@@ -66,6 +66,7 @@ typedef struct tLABL
 }tLabl;
 
 tlist* Constblock;													/* Konstanteliste					*/
+tlist* Labellist;														/* Labelkeller						*/
 
 /* ---- FunktionsPrototyp	------------------------------------------- */
 void    clear(tProc* Proc);																							/* Lösche aktuellen Baum	*/

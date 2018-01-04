@@ -208,6 +208,7 @@ int main(int argc, char *argv[])
 	initLex(pBuf);														/* Lexer initialisieren 	*/
 	
 	Constblock = createlist();								/* Erstelle Konstantenblo */
+	Labellist = createlist();									/* Erstelle Labelkeller 	*/
 	AktProc = createProc(0, 0);								/* MainProzedur						*/
 	
 	pars(gProg);

@@ -6,10 +6,10 @@
 
 #include "smr.h"
 
-/* Aktuelles													*/
+/* Globales														*/
 char* pName;
 long Val;
-int compid;
+int compid;																	/* Globale Var Condition	*/
 
 /* Ist Konstantenname schon vorhanden */
 int bl1()
@@ -125,9 +125,9 @@ int st1()
 		{
 			
 			tVar* Var_tmp = Bez_tmp->pObj;
-			if(AktProc->IdxProc==0) code(4,Var_tmp->Dspl);				/* Main 	*/
-			else if(AktProc->IdxProc==0) code(4,Var_tmp->Dspl);								// <--- dieser fall ist nicht einleuchtend
-			else {code(3,Var_tmp->Dspl);}													/* Local	*/			
+			if(AktProc->IdxProc==0) code(4,Var_tmp->Dspl);												/* Main 	*/
+			else if(AktProc->IdxProc > 0) code(2,Var_tmp->Dspl,AktProc->IdxProc);	/* Global */
+			else {code(3,Var_tmp->Dspl);}																					/* Local	*/			
 		}
 		else if(Bez_tmp->Kz == KzConst)
 		{
@@ -165,10 +165,10 @@ int st9()
 		{
 			
 			tVar* Var_tmp = Bez_tmp->pObj;
-			if(AktProc->IdxProc==0) code(4,Var_tmp->Dspl);				/* Main 	*/
-			else if(AktProc->IdxProc==0) code(4,Var_tmp->Dspl);								// <--- dieser fall ist nicht einleuchtend
-			else {code(3,Var_tmp->Dspl);}													/* Local	*/	
-			code(9);																							/* GETVAL */		
+			if(AktProc->IdxProc==0) code(4,Var_tmp->Dspl);											/* Main 	*/
+			else if(AktProc->IdxProc>0) code(2,Var_tmp->Dspl,AktProc->IdxProc);	/* Global */
+			else {code(3,Var_tmp->Dspl);}																				/* Local	*/	
+			code(9);																														/* GETVAL */		
 		}
 		else if(Bez_tmp->Kz == KzConst)
 		{
@@ -260,9 +260,9 @@ int fa2()
 		{
 			
 			tVar* Var_tmp = Bez_tmp->pObj;
-			if(AktProc->IdxProc==0) code(4,Var_tmp->Dspl);				/* Main 	*/
-			else if(AktProc->IdxProc==0) code(4,Var_tmp->Dspl);								// <--- dieser fall ist nicht einleuchtend
-			else {code(3,Var_tmp->Dspl);}													/* Local	*/			
+			if(AktProc->IdxProc==0) code(4,Var_tmp->Dspl);											/* Main 	*/
+			else if(AktProc->IdxProc>0) code(2,Var_tmp->Dspl,AktProc->IdxProc);	/* Global */
+			else {code(3,Var_tmp->Dspl);}																				/* Local	*/			
 		}
 		else if(Bez_tmp->Kz == KzConst)
 		{
