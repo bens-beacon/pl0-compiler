@@ -211,11 +211,11 @@ int main(int argc, char *argv[])
 	Labellist = createlist();									/* Erstelle Labelkeller 	*/
 	AktProc = createProc(0, 0);								/* MainProzedur						*/
 	
-	pars(gProg);
-	
 	/* Write Code in CodeFile */
 	openOFile(pBuf);
-	CodeOut();
+
+	pars(gProg);
+	
 	closeOFile();
 	
 	

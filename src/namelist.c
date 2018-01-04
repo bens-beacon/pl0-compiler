@@ -148,4 +148,3 @@ void clear(tProc* Proc)
 		free(Proc);															/* Procedur frei geben		*/
 	}
 }
-

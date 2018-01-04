@@ -3,15 +3,19 @@
 ## Was ist noch zu tun?
 
 * Liste für Label fehlt noch -> Erklärung File Beck.
+* Was ist der Codeausgabebereich?
 
 ### Fragen
 
-* Löschen ist noch unklar! Nur die aktuelle Procedur oder alles löschen?
-* Wann wird das Codefile geöffnet und geschlossen? -> Momentan in main und nicht jedesmal
+* Löschen: es muss alles gelösch werden!
 * Codelänge wo bekomme ich diese her? Zeilen Spalten gezählt?
+  * CodeLen ist shcon vorhanden. 
 * Fehler bei Funktion Codeout. Die Variable AktProc wird nicht gesetzt
+  * Wahrscheinlich funktionierts doch?
 * In der SMR sind pName, AktProc, Val gobal definiert... richtig?
+  * 
 * Für was braucht man den Fall PushAdrVarGlobal?
+  * Man sucht die Variable und muss rausbekommen ist diese global oder local oder zwischendrin,...
 
 ## Dateien
 
@@ -80,7 +84,7 @@ im code.h
 Beispiel für entryproc - Hauptprozedur:
 
 |--------------------
-| 1A | ?? | 1 | 4 ...
+| 1A | ?? | 1 | 4 ... 
 |-------------------
 
 1A ... entryproc
@@ -105,9 +109,9 @@ aktuellen Prozedur gesucht. Sie gelten ja nur für diesen Bereich.
 
 ### Label - While / IF
 
-Labels merken sich den aktuellen Stand des Schreibzeigers.
-Werden bei IF und WHILE verwendet. Fürdie Labels gibt es eine Liste,
-Aufbau wie ein Keller.
+Labels merken sich den aktuellen Stand des Schreibzeigers auf den 
+Codeausgabebereich. Werden bei IF und WHILE verwendet. Für die Labels 
+gibt es eine Liste, Aufbau wie ein Keller. 
 
 
 

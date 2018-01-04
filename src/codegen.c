@@ -2,17 +2,18 @@
  * C-Code
  * Code by Ben
  * 
+ * Statt dem pCode könnte man auch eine Relativadresse nehmen!
+ * 
 */
 
 #include "codegen.h"
 
-char*  vCode;																/* Pointer Ber. für Code	*/
-char*  pCode;    														/* Pointer auf akt. Pos	  */
+char*  vCode;																/* Anfangsadresse im Speicher	*/
+char*  pCode;    														/* pCode wandert durch als Zeiger */
 short  IdxProc;  														/* Zähler für Prozedur		*/
 int    LenCode;  														/* Länge Codeausgabeberei	*/
 FILE*  pOFile;															/* Ausgabe Datei					*/
 tProc* AktProc;
-tlist* pLConst;
 tMorph Morph;																/* Aktuelles Morphem			*/
 
 /* Schreibe aktuelle Programmcounter	*/
@@ -102,7 +103,7 @@ int CodeOut(void)
 {
   unsigned short Len=(unsigned short)(pCode-vCode);
   wr2ToCodeAtP((short)Len,vCode+1);							/* Schreibe Code     	*/
-  wr2ToCodeAtP((short)AktProc->SpzzVar,vCode+5);/* Schreibe Variable 	*/ // <-- Fehler
+  wr2ToCodeAtP((short)AktProc->SpzzVar,vCode+5);/* Schreibe Variable 	*/
   if (Len==fwrite(vCode,sizeof(char),Len,pOFile)) return OK;
   else return FAIL;
 }
@@ -116,13 +117,12 @@ int openOFile(char* arg)
   if (strstr(vName,".pl0")==NULL) strcat(vName,".cl0");
   else *(strchr(vName,'.')+1)='c';
 
-  if ((pOFile=fopen(vName,"w"))!=NULL) 		/* Öffne es								*/
+  if ((pOFile=fopen(vName,"w"))!=NULL) 		  /* Öffne es								*/
   {
     fwrite(&i,sizeof(int32_t),1,pOFile);		/* Fülle es mit nullen		*/
     return OK;
   }
   else return FAIL;
-  
 }
 
 /* Schließe das Codefile							*/

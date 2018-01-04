@@ -10,6 +10,7 @@
 char* pName;
 long Val;
 int compid;																	/* Globale Var Condition	*/
+extern int LenCode;													/* Codelänge							*/
 
 /* Ist Konstantenname schon vorhanden */
 int bl1()
@@ -80,6 +81,7 @@ int bl5()
 	tProc* Proc_tmp = AktProc;
 	AktProc = Proc_tmp->pParent;							/* ElternProzedur wird akt*/
 	clear(Proc_tmp);
+	CodeOut();																/* Schreibe i Ausgabedatei*/
 }
 
 /* Beginn des Anwesiungsteils					*/
