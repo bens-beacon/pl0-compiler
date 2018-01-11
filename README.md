@@ -111,6 +111,15 @@ Codeausgabebereich. Werden bei IF und WHILE verwendet. Für die Labels
 gibt es eine Liste, Aufbau wie ein Keller. 
 
 
+Labels beinhalten eine Zahl. Sie werden wie in einen Stack geschrieben.
+Verschachtelte Conditions werden von innen nach außen abgearbeitet. Für die 
+innere Condition steht das Label ganz oben. Das Label besitzt die Zahl 
+die sagt wieviele bytes übersprungen werden müssen um auf die Relativadresse
+zuzugreifen 
+
+| jmp | ...  | ... | jmp | jmpnot |
+    ^-----------------|
+
 
 
 
