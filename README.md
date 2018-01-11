@@ -11,7 +11,6 @@
   * Wahrscheinlich funktionierts doch?
 * Für was braucht man den Fall PushAdrVarGlobal?
   * Man sucht die Variable und muss rausbekommen ist diese global oder local oder zwischendrin,...
-* Wie wird auf die einzelnen Elemente zugegriffen In der Ausgabedatei?
 
 ### Infos
 * bl5 wird nicht bei Statement aufgerufen

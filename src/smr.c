@@ -130,9 +130,9 @@ int st1()
 		if(Bez_tmp->Kz == KzVar)
 		{		
 			tVar* Var_tmp = Bez_tmp->pObj;
-			if(AktProc->IdxProc==0) code(4,Var_tmp->Dspl);												/* Main 	*/
-			else if(AktProc->IdxProc > 0) code(2,Var_tmp->Dspl,AktProc->IdxProc);	/* Global */
-			else {code(3,Var_tmp->Dspl);}																					/* Local	*/			
+			if(Bez_tmp->IdxProc==0) code(4,Var_tmp->Dspl);											/* Main 	*/
+			else if(AktProc->IdxProc == Bez_tmp->IdxProc) code(3,Var_tmp->Dspl);/* Local	*/
+			else {code(2,Var_tmp->Dspl,AktProc->IdxProc);	}											/* Global */																		
 		}
 		else if(Bez_tmp->Kz == KzConst)
 		{
@@ -167,12 +167,11 @@ int st9()
 	else
 	{
 		if(Bez_tmp->Kz == KzVar)
-		{
-			
+		{		
 			tVar* Var_tmp = Bez_tmp->pObj;
-			if(AktProc->IdxProc==0) code(4,Var_tmp->Dspl);											/* Main 	*/
-			else if(AktProc->IdxProc>0) code(2,Var_tmp->Dspl,AktProc->IdxProc);	/* Global */
-			else {code(3,Var_tmp->Dspl);}																				/* Local	*/	
+			if(Bez_tmp->IdxProc==0) code(4,Var_tmp->Dspl);											/* Main 	*/
+			else if(AktProc->IdxProc == Bez_tmp->IdxProc) code(3,Var_tmp->Dspl);/* Local	*/
+			else {code(2,Var_tmp->Dspl,AktProc->IdxProc);	}											/* Global */		
 			code(9);																														/* GETVAL */		
 		}
 		else if(Bez_tmp->Kz == KzConst)
@@ -265,9 +264,9 @@ int fa2()
 		{
 			
 			tVar* Var_tmp = Bez_tmp->pObj;
-			if(AktProc->IdxProc==0) code(4,Var_tmp->Dspl);											/* Main 	*/
-			else if(AktProc->IdxProc>0) code(2,Var_tmp->Dspl,AktProc->IdxProc);	/* Global */
-			else {code(3,Var_tmp->Dspl);}																				/* Local	*/			
+			if(Bez_tmp->IdxProc==0) code(4,Var_tmp->Dspl);											/* Main 	*/
+			else if(AktProc->IdxProc == Bez_tmp->IdxProc) code(3,Var_tmp->Dspl);/* Local	*/
+			else {code(2,Var_tmp->Dspl,AktProc->IdxProc);	}											/* Global */				
 		}
 		else if(Bez_tmp->Kz == KzConst)
 		{
