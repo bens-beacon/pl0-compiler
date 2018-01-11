@@ -5,13 +5,12 @@
 * Liste für Label fehlt noch -> Erklärung File Beck.
 * Was ist der Codeausgabebereich?
 * Codelänge nachtragen Variable ist schon vorhanden in codegen.c!
+* Eindeutige Fehlerbehandlung
 
 ### Fragen
 
 * Fehler bei Funktion Codeout. Die Variable AktProc wird nicht gesetzt
   * Wahrscheinlich funktionierts doch?
-* In der SMR sind pName, AktProc, Val gobal definiert... richtig?
-  * 
 * Für was braucht man den Fall PushAdrVarGlobal?
   * Man sucht die Variable und muss rausbekommen ist diese global oder local oder zwischendrin,...
 * Wie wird auf die einzelnen Elemente zugegriffen In der Ausgabedatei?

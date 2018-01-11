@@ -87,6 +87,7 @@ int bl5()
 /* Beginn des Anwesiungsteils					*/
 int bl6()
 {
+	printf(ANSI_COLOR_CYAN " >> bl6!\n");	
 	tProc* Proc_tmp = AktProc;
 	code(20,0,Proc_tmp->IdxProc,Proc_tmp->SpzzVar); /* 20 = entryProc		*/
 	return OK;
@@ -96,6 +97,8 @@ int bl6()
 /* Abschlussarbeiten									*/
 int pr1()
 {
+	CodeOut();
+	printf(ANSI_COLOR_CYAN " >> pr1!\n");	
 	//bl5();																		/* Löschen								*/
 
 	/* Schreibe Constantenblock 				*/
@@ -124,8 +127,7 @@ int st1()
 	else
 	{
 		if(Bez_tmp->Kz == KzVar)
-		{
-			
+		{		
 			tVar* Var_tmp = Bez_tmp->pObj;
 			if(AktProc->IdxProc==0) code(4,Var_tmp->Dspl);												/* Main 	*/
 			else if(AktProc->IdxProc > 0) code(2,Var_tmp->Dspl,AktProc->IdxProc);	/* Global */

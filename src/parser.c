@@ -142,6 +142,7 @@ int pars(tBog* pGraph)
 		if(Gra[g].iAlt== pBog->iAlt && Gra[g].iNext== pBog->iNext	) break;
 	}
 	/* Ausgabe 									*/
+	printf(ANSI_COLOR_GREEN "");	
 	printf("Graph: %-3d | AkBo: %-2i | (Next: %-2i Alt: %-2i) | ",Graph,g,pBog->iNext,pBog->iAlt); 
 	switch(Morph.MC)
 	{
