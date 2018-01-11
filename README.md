@@ -3,9 +3,7 @@
 ## Was ist noch zu tun?
 
 * Liste für Label fehlt noch -> Erklärung File Beck.
-* Was ist der Codeausgabebereich?
-* Codelänge nachtragen Variable ist schon vorhanden in codegen.c!
-* Eindeutige Fehlerbehandlung
+* Eindeutige Fehlerbehandlung!
 
 ### Fragen
 

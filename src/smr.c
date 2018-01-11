@@ -110,7 +110,8 @@ int pr1()
 			wr2ToCode(Const_tmp->Val);
 		}
 		/* Codelänge nachtragen */
-		//wr2ToCodeAtP(short x,char*pD)
+		char vbuf1[1];
+		wr2ToCodeAtP(LenCode, vbuf1);
 	}
 	return OK;									
 }
