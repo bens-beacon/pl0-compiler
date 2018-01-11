@@ -130,17 +130,20 @@ tBez* globalsearchBEZ(tProc* Proc, char *pName)
 }
 
 /* Lösche Listen					*/
-/* Diese Funktion gibt von einer Procedur das Objekt den Bezeichner 
- * und die Procedur selbst wieder frei.
+/* Lösche alles ausgehend von der übergebenen Prozedur. 
 */
 void clear(tProc* Proc)
 {
 	if(Proc->pLBez->last!=NULL)								/* Bis Liste alle					*/
 	{ 
 		tBez* Bez_tmp = Proc->pLBez->last->data;
-		free(Bez_tmp->pObj);										/* lösche Objekt					*/				
-		removelast(Proc->pLBez);								/* lösche letzten Bezei		*/
-		clear(Proc);														
+		if(Bez_tmp->Kz == KzProc) clear(Bez_tmp->pObj); /* untergeord Proc*/
+		if(Bez_tmp->Kz != KzProc)
+		{
+			free(Bez_tmp->pObj);									/* lösche Objekt					*/				
+			removelast(Proc->pLBez);							/* lösche letzten Bezei		*/
+			clear(Proc);
+		}																
 	}
 	else 
 	{

@@ -4,18 +4,22 @@
 
 * Liste für Label fehlt noch -> Erklärung File Beck.
 * Was ist der Codeausgabebereich?
+* Codelänge nachtragen Variable ist schon vorhanden in codegen.c!
+* Löschfunktion umbauen
 
 ### Fragen
 
-* Löschen: es muss alles gelösch werden!
-* Codelänge wo bekomme ich diese her? Zeilen Spalten gezählt?
-  * CodeLen ist shcon vorhanden. 
 * Fehler bei Funktion Codeout. Die Variable AktProc wird nicht gesetzt
   * Wahrscheinlich funktionierts doch?
 * In der SMR sind pName, AktProc, Val gobal definiert... richtig?
   * 
 * Für was braucht man den Fall PushAdrVarGlobal?
   * Man sucht die Variable und muss rausbekommen ist diese global oder local oder zwischendrin,...
+* Wie wird auf die einzelnen Elemente zugegriffen In der Ausgabedatei?
+
+### Infos
+* bl5 wird nicht bei Statement aufgerufen
+* bl5 löscht alles
 
 ## Dateien
 

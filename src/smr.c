@@ -88,7 +88,7 @@ int bl5()
 int bl6()
 {
 	tProc* Proc_tmp = AktProc;
-	code(20,0,Proc_tmp->IdxProc,Proc_tmp->SpzzVar);
+	code(20,0,Proc_tmp->IdxProc,Proc_tmp->SpzzVar); /* 20 = entryProc		*/
 	return OK;
 }
 
@@ -96,7 +96,7 @@ int bl6()
 /* Abschlussarbeiten									*/
 int pr1()
 {
-	bl5();																		/* Lösche Aktuelle Proze	*/
+	bl5();																		/* Löschen								*/
 
 	/* Schreibe Constantenblock 				*/
 	if(Constblock->first != NULL)
