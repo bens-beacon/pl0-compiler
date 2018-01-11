@@ -22,7 +22,7 @@ tBog gBlock[]=
 /* 0 */ {BgSy,{(ul)zCST		}, NULL, 4, 1}, 	/* CONST		*/	
 /* 1 */ {BgSy,{(ul)zVAR		}, NULL, 9, 2}, 	/* VAR			*/
 /* 2 */ {BgSy,{(ul)zPRC		}, NULL,12,16}, 	/* Procedure*/
-/* 3 */ {BgGr,{(ul)iState	}, NULL,17, 0}, 	/* Statement*/
+/* 3 */ {BgGr,{(ul)iState	},  bl5,17, 0}, 	/* Statement*/
 /* 4 */ {BgMo,{(ul)mcIdent}, NULL, 5, 0}, 	/* Ident		*/		
 /* 5 */ {BgSy,{(ul)'='		}, NULL, 6, 0}, 	/*   =			*/		
 /* 6 */ {BgMo,{(ul)mcNum	}, NULL, 8, 0}, 	/* Numeral	*/

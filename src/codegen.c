@@ -128,7 +128,7 @@ int openOFile(char* arg)
 /* Schließe das Codefile							*/
 int closeOFile(void)
 {
-  char vBuf2[2];
+  char vBuf2[2];                            /* Für big/Little Endian */
   fseek(pOFile,0,SEEK_SET);									/* setzte Cursor an start */
   wr2ToCodeAtP(IdxProc,vBuf2);							/* Schreibe Anzahl Proc		*/
   if (fwrite(vBuf2,2,1,pOFile)==2) return OK;

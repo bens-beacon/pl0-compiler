@@ -82,9 +82,14 @@ int bl4()
 /* lösche Prozedur 										*/
 int bl5()
 {
+	code(retProc);
+
 	tProc* Proc_tmp = AktProc;
-	AktProc = Proc_tmp->pParent;							/* ElternProzedur wird akt*/
-	clear(Proc_tmp);
+	if( Proc_tmp->pParent != 0)
+	{
+		AktProc = Proc_tmp->pParent;						/* ElternProzedur wird akt*/
+	}							
+	//clear(Proc_tmp);
 	CodeOut();																/* Schreibe i Ausgabedatei*/
 }
 
@@ -93,7 +98,7 @@ int bl6()
 {
 	printf(ANSI_COLOR_CYAN " >> bl6!\n");	
 	tProc* Proc_tmp = AktProc;
-	code(20,0,Proc_tmp->IdxProc,Proc_tmp->SpzzVar); /* 20 = entryProc		*/
+	code(entryProc,0,Proc_tmp->IdxProc,Proc_tmp->SpzzVar); /* 20 = entryProc		*/
 	return OK;
 }
 
@@ -102,8 +107,6 @@ int bl6()
 int pr1()
 {
 	printf(ANSI_COLOR_CYAN " >> pr1!\n");	
-	CodeOut();
-	//bl5();																		/* Löschen								*/
 
 	/* Schreibe Constantenblock 				*/
 	if(Constblock->first != NULL)
@@ -113,9 +116,6 @@ int pr1()
 		{
 			wr2ToCode(Const_tmp->Val);
 		}
-		/* Codelänge nachtragen */
-		char vbuf1[1];
-		wr2ToCodeAtP(LenCode, vbuf1);
 	}
 	return OK;									
 }

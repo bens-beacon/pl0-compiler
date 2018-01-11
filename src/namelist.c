@@ -5,18 +5,19 @@
 */
 
 #include "namelist.h"
+extern int IdxProc;
 
 /* ---- Funktionen -------------------------------------------------- */ 
 /* Procedure erstellen 		*/
-tProc* createProc(short IdxProc, tProc* pParent)
+tProc* createProc(short IdxCount, tProc* pParent)
 {
 	tProc *Proc 				= malloc(sizeof(tProc)); 
 	Proc->Kz						= KzProc;
 	Proc->pLBez 				= createlist();
-	Proc->IdxProc 			= IdxProc;
+	Proc->IdxProc 			= IdxCount;
 	Proc->pParent 			= pParent;
 	Proc->SpzzVar				= 0;
-	
+	IdxProc++;
 	return Proc;
 }
 /* tBez Proc anhängen			*/
