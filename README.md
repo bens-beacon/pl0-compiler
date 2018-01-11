@@ -9,8 +9,6 @@
 
 * Fehler bei Funktion Codeout. Die Variable AktProc wird nicht gesetzt
   * Wahrscheinlich funktionierts doch?
-* Für was braucht man den Fall PushAdrVarGlobal?
-  * Man sucht die Variable und muss rausbekommen ist diese global oder local oder zwischendrin,...
 
 ### Infos
 * bl5 wird nicht bei Statement aufgerufen

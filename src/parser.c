@@ -28,7 +28,7 @@ tBog gBlock[]=
 /* 6 */ {BgMo,{(ul)mcNum	}, NULL, 8, 0}, 	/* Numeral	*/
 /* 7 */ {BgSy,{(ul)','		}, NULL, 4, 0}, 	/*   ,			*/		
 /* 8 */ {BgSy,{(ul)';'		}, NULL, 1, 7}, 	/*   ;			*/
-/* 9 */ {BgMo,{(ul)mcIdent}, NULL,11, 0}, 	/* Ident		*/
+/* 9 */ {BgMo,{(ul)mcIdent},  bl3,11, 0}, 	/* Ident		*/
 /*10 */ {BgSy,{(ul)','		}, NULL, 9, 0}, 	/*   ,			*/
 /*11 */ {BgSy,{(ul)';'		}, NULL, 2,10}, 	/*   ;			*/
 /*12 */ {BgMo,{(ul)mcIdent}, NULL,13, 0}, 	/* Ident		*/

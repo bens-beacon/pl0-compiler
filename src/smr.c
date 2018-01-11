@@ -11,6 +11,7 @@ char* pName;
 long Val;
 int compid;																	/* Globale Var Condition	*/
 extern int LenCode;													/* Codelänge							*/
+extern tProc* AktProc;
 
 /* Ist Konstantenname schon vorhanden */
 int bl1()
@@ -44,6 +45,7 @@ int bl2()
 /* Bezeichner mit Variable anlegen 	  */
 int bl3()
 {
+	printf(ANSI_COLOR_CYAN " >> bl3!\n");	
 	tBez* Bez_tmp = searchBEZ(AktProc, pName);
 	if(Bez_tmp == NULL)												/* Bez schon vorhanden ?	*/
 	{
@@ -97,8 +99,8 @@ int bl6()
 /* Abschlussarbeiten									*/
 int pr1()
 {
-	CodeOut();
 	printf(ANSI_COLOR_CYAN " >> pr1!\n");	
+	CodeOut();
 	//bl5();																		/* Löschen								*/
 
 	/* Schreibe Constantenblock 				*/

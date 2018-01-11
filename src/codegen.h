@@ -27,8 +27,6 @@
 #define OK 1
 #define FAIL 0
 
-extern tProc* AktProc;
-
 /* ---- Prototypen -------------------------------------------------- */
 int code(tCode Code,...);										/* Schreib Befe in Codefi */
 int CodeOut(void);													/* Schreiben Code raus 		*/

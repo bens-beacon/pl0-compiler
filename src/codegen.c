@@ -13,7 +13,7 @@ char*  pCode;    														/* pCode wandert durch als Zeiger */
 short  IdxProc;  														/* Zähler für Prozedur		*/
 int    LenCode;  														/* Länge Codeausgabeberei	*/
 FILE*  pOFile;															/* Ausgabe Datei					*/
-tProc* AktProc;
+extern tProc* AktProc;
 tMorph Morph;																/* Aktuelles Morphem			*/
 
 /* Schreibe aktuelle Programmcounter	*/
