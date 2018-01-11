@@ -96,7 +96,7 @@ int bl6()
 /* Abschlussarbeiten									*/
 int pr1()
 {
-	bl5();																		/* Löschen								*/
+	//bl5();																		/* Löschen								*/
 
 	/* Schreibe Constantenblock 				*/
 	if(Constblock->first != NULL)

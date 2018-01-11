@@ -5,7 +5,6 @@
 * Liste für Label fehlt noch -> Erklärung File Beck.
 * Was ist der Codeausgabebereich?
 * Codelänge nachtragen Variable ist schon vorhanden in codegen.c!
-* Löschfunktion umbauen
 
 ### Fragen
 
@@ -19,7 +18,7 @@
 
 ### Infos
 * bl5 wird nicht bei Statement aufgerufen
-* bl5 löscht alles
+* pr1 löschen ist noch auskommentiert
 
 ## Dateien
 
