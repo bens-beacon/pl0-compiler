@@ -12,6 +12,7 @@ long Val;
 int compid;																	/* Globale Var Condition	*/
 extern int LenCode;													/* Codelänge							*/
 extern tProc* AktProc;
+extern tMorph Morph;												/* Aktuelles Morphem			*/
 
 /* Ist Konstantenname schon vorhanden */
 int bl1()
@@ -45,9 +46,10 @@ int bl2()
 /* Bezeichner mit Variable anlegen 	  */
 int bl3()
 {
-	printf(ANSI_COLOR_CYAN " >> bl3!\n");	
-	tBez* Bez_tmp = searchBEZ(AktProc, pName);
-	if(Bez_tmp == NULL)												/* Bez schon vorhanden ?	*/
+	printf(ANSI_COLOR_CYAN " >> bl3!\n");
+	tBez* Bez_tmp = searchBEZ(AktProc, Morph.Val.pStr);
+	
+	if(Bez_tmp != NULL)												/* Bez schon vorhanden ?	*/
 	{
 		printf(ANSI_COLOR_RED " >> Varname is already available!\n");	
 		exit(EXIT_FAILURE);

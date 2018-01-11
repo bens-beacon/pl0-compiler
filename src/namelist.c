@@ -16,6 +16,7 @@ tProc* createProc(short IdxProc, tProc* pParent)
 	Proc->IdxProc 			= IdxProc;
 	Proc->pParent 			= pParent;
 	Proc->SpzzVar				= 0;
+	
 	return Proc;
 }
 /* tBez Proc anhängen			*/
@@ -100,10 +101,11 @@ tConst * searchConst(long Val)
 tBez* searchBEZ(tProc* Proc, char *pName)																
 {
 	Proc->pLBez->curr	= Proc->pLBez->first;		/* Hole erstes Element		*/
+	if(Proc->pLBez->curr == NULL) return NULL;
 	while(1)
 	{
 		tBez* Bez_tmp = Proc->pLBez->curr->data;
-		if(Bez_tmp->pName == pName){return Proc->pLBez->first->data;}
+		if(0==strcmp(Bez_tmp->pName, pName)){return Proc->pLBez->first->data;}
 		else if(Proc->pLBez->curr == Proc->pLBez->last){return NULL;}	
 		else Proc->pLBez->curr = Proc->pLBez->curr->next;
 	}
