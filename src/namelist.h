@@ -65,9 +65,6 @@ typedef struct tLABL
   long iJmp;																/* Pointer in Codeausgabe */
 }tLabl;
 
-tlist* Constblock;													/* Konstanteliste					*/
-tlist* Labellist;														/* Labelkeller						*/
-
 /* ---- FunktionsPrototyp	------------------------------------------- */
 void    clear(tProc* Proc);																							/* Lösche aktuellen Baum	*/
 tBez*   globalsearchBEZ(tProc* Proc, char *pName);											/* Globale Suche 					*/

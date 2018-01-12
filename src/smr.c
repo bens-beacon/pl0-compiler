@@ -13,14 +13,17 @@ int compid;																	/* Globale Var Condition	*/
 extern int LenCode;													/* Codelänge							*/
 extern tProc* AktProc;
 extern tMorph Morph;												/* Aktuelles Morphem			*/
+extern tlist* Constblock;										/* Konstanteliste					*/
+extern tlist* Labellist;										/* Labelkeller						*/
 
 /* Ist Konstantenname schon vorhanden */
 int bl1()
 {
-	tBez* Bez_tmp = searchBEZ(AktProc, pName);
-	if(Bez_tmp == NULL)												/* Bez schon vorhanden ?	*/
+	printf(ANSI_COLOR_CYAN " >> bl1!\n");
+	tBez* Bez_tmp = searchBEZ(AktProc, Morph.Val.pStr);
+	if(Bez_tmp != NULL)												/* Bez schon vorhanden ?	*/
 	{
-		printf(ANSI_COLOR_RED " >> Constname is already available!\n");
+		printf(ANSI_COLOR_RED " >> Constname \"%s\" is already available!\n",Morph.Val.pStr);
 		exit(EXIT_FAILURE);
 	}
 	return OK;
@@ -29,6 +32,7 @@ int bl1()
 /* Bezeichner mit Konstante anlegen	  */
 int bl2()
 {
+	printf(ANSI_COLOR_CYAN " >> bl2!\n");
 	tConst* Const_tmp = searchConst( Val);		
 	if(Const_tmp == NULL)											/* Konstenwert vorhanden?	*/
 	{																					/* Nicht Vorhanden, erste */

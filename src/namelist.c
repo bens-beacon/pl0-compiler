@@ -6,6 +6,8 @@
 
 #include "namelist.h"
 extern int IdxProc;
+extern tlist* Constblock;										/* Konstanteliste					*/
+extern tlist* Labellist;										/* Labelkeller						*/
 
 /* ---- Funktionen -------------------------------------------------- */ 
 /* Procedure erstellen 		*/
@@ -86,6 +88,7 @@ tBez* createBezConstIdx(tProc* Proc,long Val,char *pName,int Idx)
 tConst * searchConst(long Val)
 {
 	Constblock->curr = Constblock->first;
+	if(	Constblock->curr == NULL) return NULL;
 	while(1)
 	{
 		tConst *Const_tmp = Constblock->curr->data;

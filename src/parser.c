@@ -7,6 +7,8 @@
 #include "parser.h"
 
 tProc* AktProc;															/* Aktuelle Prozedur	 		*/
+tlist* Constblock;													/* Konstanteliste					*/
+tlist* Labellist;														/* Labelkeller						*/
 
 /* ---- BÖGEN ------------------------------------------------------- */
 /* Programm 	--------------------------------------- */
@@ -23,9 +25,9 @@ tBog gBlock[]=
 /* 1 */ {BgSy,{(ul)zVAR		}, NULL, 9, 2}, 	/* VAR			*/
 /* 2 */ {BgSy,{(ul)zPRC		}, NULL,12,16}, 	/* Procedure*/
 /* 3 */ {BgGr,{(ul)iState	},  bl5,17, 0}, 	/* Statement*/
-/* 4 */ {BgMo,{(ul)mcIdent}, NULL, 5, 0}, 	/* Ident		*/		
+/* 4 */ {BgMo,{(ul)mcIdent},  bl1, 5, 0}, 	/* Ident		*/		
 /* 5 */ {BgSy,{(ul)'='		}, NULL, 6, 0}, 	/*   =			*/		
-/* 6 */ {BgMo,{(ul)mcNum	}, NULL, 8, 0}, 	/* Numeral	*/
+/* 6 */ {BgMo,{(ul)mcNum	},  bl2, 8, 0}, 	/* Numeral	*/
 /* 7 */ {BgSy,{(ul)','		}, NULL, 4, 0}, 	/*   ,			*/		
 /* 8 */ {BgSy,{(ul)';'		}, NULL, 1, 7}, 	/*   ;			*/
 /* 9 */ {BgMo,{(ul)mcIdent},  bl3,11, 0}, 	/* Ident		*/

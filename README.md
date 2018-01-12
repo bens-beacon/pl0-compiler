@@ -7,12 +7,8 @@
 
 ### Fragen
 
-* Fehler bei Funktion Codeout. Die Variable AktProc wird nicht gesetzt
-  * Wahrscheinlich funktionierts doch?
-
 ### Infos
-* bl5 wird nicht bei Statement aufgerufen
-* pr1 löschen ist noch auskommentiert
+* bl5 löschen ist noch auskommentiert
 
 ## Dateien
 
@@ -95,6 +91,16 @@ Beispiel für Variabel speichern
 
 03 ... pushvarlocal
 0000 ... Index a
+
+------
+
+Um die die Ausgabedatei anzuschauen, kann man das Programm hexdump verwenden.
+Oder man verwendet das Ausgabeprogramm von Beck. 
+
+``` hexdump -C 1.cl0  ```
+
+``` ./outCl0 1.cl0  ```
+
 
 ### Funktionen
 
