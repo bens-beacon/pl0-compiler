@@ -7,7 +7,6 @@
 #include "smr.h"
 
 /* Globales														*/
-char* pName;
 long Val;
 int compid;																	/* Globale Var Condition	*/
 extern int LenCode;													/* Codelänge							*/
@@ -36,12 +35,12 @@ int bl2()
 	tConst* Const_tmp = searchConst( Val);		
 	if(Const_tmp == NULL)											/* Konstenwert vorhanden?	*/
 	{																					/* Nicht Vorhanden, erste */
-		tBez* BezConst = createBezConst(AktProc,Val, pName);
+		tBez* BezConst = createBezConst(AktProc,Val, Morph.Val.pStr);
 		insertend(AktProc->pLBez,BezConst);
 	}
 	else 																			/* Vorhanden, Index übern */
 	{
-		tBez* BezConst = createBezConstIdx(AktProc,Val,pName,Const_tmp->Idx);
+		tBez* BezConst = createBezConstIdx(AktProc,Val,Morph.Val.pStr,Const_tmp->Idx);
 		insertend(AktProc->pLBez,BezConst);
 	}
 	return OK;
@@ -55,12 +54,12 @@ int bl3()
 	
 	if(Bez_tmp != NULL)												/* Bez schon vorhanden ?	*/
 	{
-		printf(ANSI_COLOR_RED " >> Varname is already available!\n");	
+		printf(ANSI_COLOR_RED " >> Varname \"%s\"  is already available!\n", Morph.Val.pStr);	
 		exit(EXIT_FAILURE);
 	}
 	else
 	{
-			tBez * BezVar = createBezVar(AktProc, pName);
+			tBez * BezVar = createBezVar(AktProc, Morph.Val.pStr);
 			insertend(AktProc->pLBez,BezVar);
 	}
 	return OK;
@@ -69,15 +68,15 @@ int bl3()
 /* Bezeichner mit neuen Procedur 		  */
 int bl4()
 {
-	tBez* Bez_tmp = searchBEZ(AktProc, pName);
+	tBez* Bez_tmp = searchBEZ(AktProc, Morph.Val.pStr);
 	if(Bez_tmp == NULL)
 	{
-		printf(ANSI_COLOR_RED " >> Procedur is already available!\n");	
+		printf(ANSI_COLOR_RED " >> Procedur \"%s\" is already available!\n",Morph.Val.pStr);	
 		exit(EXIT_FAILURE);
 	}
 	else
 	{
-			tBez * BezProc = createBezProc(AktProc, pName);
+			tBez * BezProc = createBezProc(AktProc, Morph.Val.pStr);
 			insertend(AktProc->pLBez,BezProc);
 	}	
 	return OK;
@@ -127,7 +126,7 @@ int pr1()
 /* Wertzuweisung 	LS		PushAdrVar...	*/
 int st1()
 {
-	tBez * Bez_tmp = globalsearchBEZ(AktProc,pName);
+	tBez * Bez_tmp = globalsearchBEZ(AktProc,Morph.Val.pStr);
 	if( Bez_tmp == NULL)
 	{
 		printf(ANSI_COLOR_RED " >> Variable is not available!\n");	
@@ -167,7 +166,7 @@ int st2()
 /* Eingabe	 													*/
 int st9()
 {
-	tBez * Bez_tmp = globalsearchBEZ(AktProc,pName);
+	tBez * Bez_tmp = globalsearchBEZ(AktProc,Morph.Val.pStr);
 	if( Bez_tmp == NULL)
 	{
 		printf(ANSI_COLOR_RED " >> Variable is not available!\n");	
@@ -247,7 +246,7 @@ int fa1()
 	tConst* Const_tmp = searchConst(Val);		
 	if(Const_tmp == NULL)											/* Konstenwert vorhanden?	*/
 	{																					/* Nicht Vorhanden, erste */
-		tBez* BezConst = createBezConst(AktProc,Val, pName);
+		tBez* BezConst = createBezConst(AktProc,Val, Morph.Val.pStr);
 		insertend(AktProc->pLBez,BezConst);
 		Const_tmp = BezConst->pObj;
 		code(puConst,Const_tmp->Idx);						/* Konstante anlegen 			*/
@@ -262,7 +261,7 @@ int fa1()
 /* Faktor anlegen											*/
 int fa2()
 {
-	tBez * Bez_tmp = globalsearchBEZ(AktProc,pName);
+	tBez * Bez_tmp = globalsearchBEZ(AktProc,Morph.Val.pStr);
 	if( Bez_tmp == NULL)
 	{
 		printf(ANSI_COLOR_RED " >> Variable is not available!\n");	
