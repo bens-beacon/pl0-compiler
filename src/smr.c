@@ -102,7 +102,7 @@ int bl6()
 {
 	printf(ANSI_COLOR_CYAN " >> bl6!\n");	
 	tProc* Proc_tmp = AktProc;
-	code(entryProc,0,Proc_tmp->IdxProc,Proc_tmp->SpzzVar); /* 20 = entryProc		*/
+	code(entryProc,0,Proc_tmp->IdxProc,Proc_tmp->SpzzVar); /* entryproc	*/
 	return OK;
 }
 
@@ -138,9 +138,10 @@ int st1()
 		if(Bez_tmp->Kz == KzVar)
 		{		
 			tVar* Var_tmp = Bez_tmp->pObj;
-			if(Bez_tmp->IdxProc==0) code(4,Var_tmp->Dspl);											/* Main 	*/
-			else if(AktProc->IdxProc == Bez_tmp->IdxProc) code(3,Var_tmp->Dspl);/* Local	*/
-			else {code(2,Var_tmp->Dspl,AktProc->IdxProc);	}											/* Global */																		
+			if(Bez_tmp->IdxProc==0) code(puAdrVrMain,Var_tmp->Dspl);	/* Mai*/
+			else if(AktProc->IdxProc == Bez_tmp->IdxProc) 
+															code(puAdrVrLocl,Var_tmp->Dspl);	/* Loc*/
+			else {code(puValVrGlob,Var_tmp->Dspl,AktProc->IdxProc);	}	/* Glo*/																		
 		}
 		else if(Bez_tmp->Kz == KzConst)
 		{
@@ -159,7 +160,7 @@ int st1()
 /* Wertzuweisung RS										*/
 int st2()
 {
-	code(7);																	/* StoreValue							*/
+	code(storeVal);														/* StoreValue							*/
 	return OK;
 }
 
@@ -177,10 +178,11 @@ int st9()
 		if(Bez_tmp->Kz == KzVar)
 		{		
 			tVar* Var_tmp = Bez_tmp->pObj;
-			if(Bez_tmp->IdxProc==0) code(4,Var_tmp->Dspl);											/* Main 	*/
-			else if(AktProc->IdxProc == Bez_tmp->IdxProc) code(3,Var_tmp->Dspl);/* Local	*/
-			else {code(2,Var_tmp->Dspl,AktProc->IdxProc);	}											/* Global */		
-			code(9);																														/* GETVAL */		
+			if(Bez_tmp->IdxProc==0) code(puAdrVrMain,Var_tmp->Dspl);	/* Mai*/
+			else if(AktProc->IdxProc == Bez_tmp->IdxProc) 
+															code(puAdrVrLocl,Var_tmp->Dspl);	/* Loc*/
+			else {code(puValVrGlob,Var_tmp->Dspl,AktProc->IdxProc);	}	/* Glo*/			
+			code(getVal);																					/* GETVAL */		
 		}
 		else if(Bez_tmp->Kz == KzConst)
 		{
@@ -200,42 +202,42 @@ int st9()
 /* Ausgabe 														*/
 int st10()
 {
-	code(8);																	/* PUTVAL									*/									
+	code(putVal);															/* PUTVAL									*/									
 	return OK;
 }
 
 /* Vorzeichen Minus										*/
 int ex1()
 {
-	code(10);																	/* vzMinus								*/
+	code(vzMinus);														/* vzMinus								*/
 	return OK;
 }
 
 /* Addieren														*/
 int ex2()
 {
-	code(12);																	/* opAdd									*/
+	code(OpAdd);															/* opAdd									*/
 	return OK;
 }
 
 /* Subtrahieren												*/
 int ex3()
 {
-	code(13);																	/* opSub									*/
+	code(OpSub);															/* opSub									*/
 	return OK;
 }
 
 /* Mulitplizieren											*/
 int te1()
 {
-	code(14);																	/* opMud									*/
+	code(OpMult);															/* opMud									*/
 	return OK;
 }
 
 /* Dividieren													*/
 int te2()
 {
-	code(15);																	/* opDiv									*/
+	code(OpDiv);															/* opDiv									*/
 	return OK;
 }
 
@@ -248,7 +250,7 @@ int fa1()
 		tBez* BezConst = createBezConst(AktProc,Val, pName);
 		insertend(AktProc->pLBez,BezConst);
 		Const_tmp = BezConst->pObj;
-		code(6,Const_tmp->Idx);									/* Konstante anlegen 			*/
+		code(puConst,Const_tmp->Idx);						/* Konstante anlegen 			*/
 	}
 	else 																			/* Vorhanden, Index übern */
 	{
@@ -269,17 +271,17 @@ int fa2()
 	else
 	{
 		if(Bez_tmp->Kz == KzVar)
-		{
-			
+		{		
 			tVar* Var_tmp = Bez_tmp->pObj;
-			if(Bez_tmp->IdxProc==0) code(4,Var_tmp->Dspl);											/* Main 	*/
-			else if(AktProc->IdxProc == Bez_tmp->IdxProc) code(3,Var_tmp->Dspl);/* Local	*/
-			else {code(2,Var_tmp->Dspl,AktProc->IdxProc);	}											/* Global */				
+			if(Bez_tmp->IdxProc==0) code(puAdrVrMain,Var_tmp->Dspl);	/* Mai*/
+			else if(AktProc->IdxProc == Bez_tmp->IdxProc) 
+															code(puAdrVrLocl,Var_tmp->Dspl);	/* Loc*/
+			else {code(puValVrGlob,Var_tmp->Dspl,AktProc->IdxProc);	}	/* Glo*/				
 		}
 		else if(Bez_tmp->Kz == KzConst)
 		{
 			tConst* Const_tmp = Bez_tmp->pObj;
-			code(6,Const_tmp->Idx);								/* Konstante anlegen 			*/
+			code(puConst,Const_tmp->Idx);					/* Konstante anlegen 			*/
 		}
 		else if(Bez_tmp->Kz == KzProc)
 		{
@@ -293,49 +295,49 @@ int fa2()
 /* Condition 													*/
 int co1()
 {
-	code(11);																	/* odd										*/
+	code(odd);																/* odd										*/
 	return OK;
 }
 
 /* = 																	*/
 int co2()
 {
-	compid = 16;															/* cmpEQ									*/
+	compid = cmpEQ;														/* cmpEQ									*/
 	return OK;
 }
 
 /* # 																	*/
 int co3()
 {
-	compid = 17;															/* cmpNE									*/
+	compid = cmpNE;														/* cmpNE									*/
 	return OK;
 }
 
 /* < 																	*/
 int co4()
 {
-	compid = 18;															/* cmpLT									*/
+	compid = cmpLT;														/* cmpLT									*/
 	return OK;
 }
 
 /* <= 																*/
 int co5()
 {
-	compid = 20;															/* cmpLE									*/
+	compid = cmpLE;														/* cmpLE									*/
 	return OK;
 }
 
 /* >																	*/
 int co6()
 {
-	compid = 19;															/* cmpGT									*/
+	compid = cmpGT;														/* cmpGT									*/
 	return OK;
 }
 
 /* >= 																	*/
 int co7()
 {
-	compid = 21;															/* cmpGE									*/
+	compid = cmpGE;														/* cmpGE									*/
 	return OK;
 }
 
