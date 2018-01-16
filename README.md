@@ -7,10 +7,13 @@
 
 ### Fragen
 
-* Konstantenblock schreiben wir groß für jede Konstante
+* Konstantenblock schreiben. Wie groß muss der Platz pro Konstante sein?
+* Prozeduren werden mehrfach ins File geschrieben?
 
 ### Infos
+
 * bl5 löschen ist noch auskommentiert
+
 
 ## Dateien
 

@@ -53,7 +53,7 @@ int bl2()
 /* Bezeichner mit Variable anlegen 	  */
 int bl3()
 {
-	printf(ANSI_COLOR_CYAN " >> bl3! Ident: %s \n",Morph.Val.pStr);
+	printf(ANSI_COLOR_CYAN " >> bl3! \n");
 
 	tBez* Bez_tmp = searchBEZ(AktProc, Morph.Val.pStr);
 	if(Bez_tmp != NULL)												/* Bez schon vorhanden ?	*/
