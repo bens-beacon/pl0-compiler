@@ -49,37 +49,46 @@ tBez* createBezVar(tProc* Proc,char *pName)
 		
 		return newBez;
 }
-/* tBez  Const anhängen		*/
-tBez* createBezConst(tProc* Proc,long Val,char *pName)
+/* tBez  Const erstellen	*/
+tBez* createBezConst(char *pName)
 {
 		tConst *newConst 	= malloc(sizeof(tConst)); 
 		newConst->Kz			= KzConst;
-		newConst->Val			= Val;
 		newConst->Idx			= Constblock->length;	/* Index ist akt. Länge		*/
-		insertend(Constblock,newConst);					/* Füge an Konstantenblock*/
+
 		tBez *newBez 			= malloc(sizeof(tBez));
 		newBez->Kz 				= KzConst;
-		newBez->IdxProc		= Proc->IdxProc;
-		newBez->pObj 			= newConst;
-		newBez->pName			= pName;
-		return newBez;
-}
-/* tBez  Const mit Idx an */
-tBez* createBezConstIdx(tProc* Proc,long Val,char *pName,int Idx)
-{
-		tConst *newConst 	= malloc(sizeof(tConst)); 
-		newConst->Kz			= KzConst;
-		newConst->Val			= Val;
-		newConst->Idx			= Idx;								/* Index wurde übergeben	*/
-		insertend(Constblock,newConst);					/* Füge an Konstantenblock*/
-		tBez *newBez 			= malloc(sizeof(tBez));
-		newBez->Kz 				= KzConst;
-		newBez->IdxProc		= Proc->IdxProc;
 		newBez->pObj 			= newConst;
 		newBez->pName			= pName;
 		return newBez;
 }
 
+/* tBez  Wert anhängen		*/
+tBez* addValueBezConst(tProc* Proc,	tBez* ConstBez,long Val)
+{
+		tConst* newConst = ConstBez->pObj;
+		newConst->Val			= Val;
+		insertend(Constblock,newConst);					/* Füge an Konstantenblock*/
+		ConstBez->IdxProc		= Proc->IdxProc;
+		return ConstBez;
+}
+
+/* tBez  Const mit Idx an 
+tBez* createBezConstIdx(tProc* Proc,long Val,char *pName,int Idx)
+{
+		tConst *newConst 	= malloc(sizeof(tConst)); 
+		newConst->Kz			= KzConst;
+		newConst->Val			= Val;
+		newConst->Idx			= Idx;							
+		insertend(Constblock,newConst);				
+		tBez *newBez 			= malloc(sizeof(tBez));
+		newBez->Kz 				= KzConst;
+		newBez->IdxProc		= Proc->IdxProc;
+		newBez->pObj 			= newConst;
+		newBez->pName			= pName;
+		return newBez;
+}
+*/
 
 /* Suche Constante				*/
 /* Hier wird die übergebene Konstante gesucht! Und wenn gefunden der 

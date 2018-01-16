@@ -13,6 +13,7 @@ extern tProc* AktProc;
 extern tMorph Morph;												/* Aktuelles Morphem			*/
 extern tlist* Constblock;										/* Konstanteliste					*/
 extern tlist* Labellist;										/* Labelkeller						*/
+tBez* BezConstGlobal;												/* Globaler Bez für Const	*/
 
 /* Ist Konstantenname schon vorhanden */
 int bl1()
@@ -25,6 +26,8 @@ int bl1()
 		printf(ANSI_COLOR_RED " >> Constname \"%s\" is already available!\n",Morph.Val.pStr);
 		exit(EXIT_FAILURE);
 	}
+	tBez* BezConst = createBezConst(Morph.Val.pStr);/* Erstelle ConstBez*/
+	BezConstGlobal = BezConst;
 	return OK;
 }
 
@@ -36,12 +39,12 @@ int bl2()
 	tConst* Const_tmp = searchConst(Morph.Val.Num);		
 	if(Const_tmp == NULL)											/* Konstenwert vorhanden?	*/
 	{																					/* Nicht Vorhanden, erste */
-		tBez* BezConst = createBezConst(AktProc, Morph.Val.Num, Morph.Val.pStr);
+		tBez* BezConst = addValueBezConst(AktProc, BezConstGlobal, Morph.Val.Num);
 		insertend(AktProc->pLBez,BezConst);
 	}
 	else 																			/* Vorhanden, Index übern */
 	{
-		tBez* BezConst = createBezConstIdx(AktProc, Morph.Val.Num,Morph.Val.pStr,Const_tmp->Idx);
+		tBez* BezConst = addValueBezConst(AktProc, BezConstGlobal, Const_tmp->Val);
 		insertend(AktProc->pLBez,BezConst);
 	}
 	return OK;
@@ -248,10 +251,10 @@ int fa1()
 	tConst* Const_tmp = searchConst(Morph.Val.Num);		
 	if(Const_tmp == NULL)											/* Konstenwert vorhanden?	*/
 	{																					/* Nicht Vorhanden, erste */
-		tBez* BezConst = createBezConst(AktProc,Morph.Val.Num, Morph.Val.pStr);
-		insertend(AktProc->pLBez,BezConst);
-		Const_tmp = BezConst->pObj;
-		code(puConst,Const_tmp->Idx);						/* Konstante anlegen 			*/
+		//tBez* BezConst = createBezConst(AktProc,Morph.Val.Num, Morph.Val.pStr);
+		//insertend(AktProc->pLBez,BezConst);
+		//Const_tmp = BezConst->pObj;
+		//code(puConst,Const_tmp->Idx);						/* Konstante anlegen 			*/
 	}
 	else 																			/* Vorhanden, Index übern */
 	{

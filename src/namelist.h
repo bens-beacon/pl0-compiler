@@ -70,7 +70,8 @@ void    clear(tProc* Proc);																							/* Lösche aktuellen Baum	*/
 tBez*   globalsearchBEZ(tProc* Proc, char *pName);											/* Globale Suche 					*/
 tBez*   searchBEZ(tProc* Proc, char *pName);														/* Suche in akt. Prozedur */
 tConst* searchConst(long Val);																					/* Suche Konst in Konstbl */
-tBez*   createBezConst(tProc* Proc,long Val,char *pName);								/* */
+tBez*   createBezConst(char *pName);								
+tBez* 	addValueBezConst(tProc* Proc,	tBez* ConstBez,long Val);
 tBez*   createBezConstIdx(tProc* Proc,long Val,char *pName,int Idx);
 tBez*   createBezVar(tProc* Proc,char *pName);
 tBez*   createBezProc(tProc* Proc, char *pName);
