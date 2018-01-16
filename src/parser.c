@@ -218,7 +218,7 @@ int main(int argc, char *argv[])
 	openOFile(pBuf);
 
 	pars(gProg);
-	
+
 	closeOFile();
 	
 	

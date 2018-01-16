@@ -12,8 +12,7 @@
 
 ### Infos
 
-* bl5 löschen ist noch auskommentiert
-
+...
 
 ## Dateien
 

@@ -143,20 +143,15 @@ int closeOFile(void)
 int writeConstblock(void)
 {
   fseek(pOFile,0,SEEK_END);                 /* Cursor ans Ende setzten*/
-
-  /* Schreibe Constantenblock 				*/
-	if(Constblock->first != NULL)
+	if(Constblock->first != NULL)             /* Schreibe Constantenblo */
 	{	
 		Constblock->curr = Constblock->first;
 		for(;; Constblock->curr = Constblock->curr->next)
 		{
 			tConst* Const_tmp = Constblock->curr->data;
-			//wr2ToCode(Const_tmp->Val);
-      fwrite(&Const_tmp->Val,sizeof(int16_t),1,pOFile);
-
-			if(Constblock->curr==Constblock->last) break;	/* Abbruch		*/
+      fwrite(&Const_tmp->Val,sizeof(int32_t),1,pOFile);
+			if(Constblock->curr==Constblock->last) break;	    /* Abbruch		*/
 		}
 	}
   return OK;
-
 }

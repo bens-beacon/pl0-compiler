@@ -89,8 +89,9 @@ int bl4()
 /* lösche Prozedur 										*/
 int bl5()
 {
-	code(retProc);
+	printf(ANSI_COLOR_CYAN " >> bl5!\n");	
 
+	code(retProc);
 	tProc* Proc_tmp = AktProc;
 	if( Proc_tmp->pParent != 0)
 	{
