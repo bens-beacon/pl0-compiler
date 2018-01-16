@@ -7,7 +7,6 @@
 #include "smr.h"
 
 /* Globales														*/
-long Val;
 int compid;																	/* Globale Var Condition	*/
 extern int LenCode;													/* Codelänge							*/
 extern tProc* AktProc;
@@ -18,7 +17,8 @@ extern tlist* Labellist;										/* Labelkeller						*/
 /* Ist Konstantenname schon vorhanden */
 int bl1()
 {
-	printf(ANSI_COLOR_CYAN " >> bl1!\n");
+	printf(ANSI_COLOR_CYAN " >> bl1! Search for Const \"%s\"! \n", Morph.Val.pStr);
+
 	tBez* Bez_tmp = searchBEZ(AktProc, Morph.Val.pStr);
 	if(Bez_tmp != NULL)												/* Bez schon vorhanden ?	*/
 	{
@@ -31,7 +31,8 @@ int bl1()
 /* Bezeichner mit Konstante anlegen	  */
 int bl2()
 {
-	printf(ANSI_COLOR_CYAN " >> bl2! Create Const %s : \n",  Morph.Val.pStr);
+	printf(ANSI_COLOR_CYAN " >> bl2! Add Value to Const: %ld \n", Morph.Val.Num);
+
 	tConst* Const_tmp = searchConst(Morph.Val.Num);		
 	if(Const_tmp == NULL)											/* Konstenwert vorhanden?	*/
 	{																					/* Nicht Vorhanden, erste */
@@ -40,7 +41,7 @@ int bl2()
 	}
 	else 																			/* Vorhanden, Index übern */
 	{
-		tBez* BezConst = createBezConstIdx(AktProc,Val,Morph.Val.pStr,Const_tmp->Idx);
+		tBez* BezConst = createBezConstIdx(AktProc, Morph.Val.Num,Morph.Val.pStr,Const_tmp->Idx);
 		insertend(AktProc->pLBez,BezConst);
 	}
 	return OK;
@@ -50,8 +51,8 @@ int bl2()
 int bl3()
 {
 	printf(ANSI_COLOR_CYAN " >> bl3! Ident: %s \n",Morph.Val.pStr);
+
 	tBez* Bez_tmp = searchBEZ(AktProc, Morph.Val.pStr);
-	
 	if(Bez_tmp != NULL)												/* Bez schon vorhanden ?	*/
 	{
 		printf(ANSI_COLOR_RED " >> Varname \"%s\"  is already defined!\n", Morph.Val.pStr);	
@@ -244,10 +245,10 @@ int te2()
 /* Faktor Konstante										*/
 int fa1()
 {
-	tConst* Const_tmp = searchConst(Val);		
+	tConst* Const_tmp = searchConst(Morph.Val.Num);		
 	if(Const_tmp == NULL)											/* Konstenwert vorhanden?	*/
 	{																					/* Nicht Vorhanden, erste */
-		tBez* BezConst = createBezConst(AktProc,Val, Morph.Val.pStr);
+		tBez* BezConst = createBezConst(AktProc,Morph.Val.Num, Morph.Val.pStr);
 		insertend(AktProc->pLBez,BezConst);
 		Const_tmp = BezConst->pObj;
 		code(puConst,Const_tmp->Idx);						/* Konstante anlegen 			*/
