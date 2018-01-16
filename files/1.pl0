@@ -1,7 +1,9 @@
 
-const a = 12;
-var b;
+const a = 12, b = 2;
+var x, y, z;
+call x
 
-b := a
+
+
 
 .

@@ -63,22 +63,22 @@ tBog gState[]=
 /*17 */ {BgGr,{(ul)iState	}, NULL,19, 0}, /* Statement*/
 /*18 */ {BgSy,{(ul)';'		}, NULL,17, 0}, /*   ;			*/
 /*19 */ {BgSy,{(ul)zEND		}, NULL,10,18}, /* END			*/
-/*20 */ {BgMo,{(ul)mcIdent}, NULL,10, 0}, /* Ident		*/
-/*21 */ {BgMo,{(ul)mcIdent}, NULL,10, 0}, /* Ident		*/
-/*22 */ {BgGr,{(ul)iExpr	}, NULL,10, 0}  /* Expressio*/
+/*20 */ {BgMo,{(ul)mcIdent},  st8,10, 0}, /* Ident		*/
+/*21 */ {BgMo,{(ul)mcIdent},  st9,10, 0}, /* Ident		*/
+/*22 */ {BgGr,{(ul)iExpr	}, st10,10, 0}  /* Expressio*/
 };
 /* Expression --------------------------------------- */
 tBog gExpr[]=
 {
 /* 0 */ {BgSy,{(ul)'-'		}, NULL, 2, 1}, /*  - 			*/
 /* 1 */ {BgGr,{(ul)iTerm	}, NULL, 3, 0}, /* Term			*/
-/* 2 */ {BgGr,{(ul)iTerm	}, NULL, 3, 0}, /* Term			*/
+/* 2 */ {BgGr,{(ul)iTerm	},  ex1, 3, 0}, /* Term			*/
 /* 3 */ {BgNl,{						}, NULL, 5, 0}, /* NIL			*/
 /* 4 */ {BgEn,{(ul)0			}, NULL, 0, 5}, /* Ende 		*/
 /* 5 */ {BgSy,{(ul)'+'		}, NULL, 7, 6}, /*  + 			*/
 /* 6 */ {BgSy,{(ul)'-'		}, NULL, 8, 4}, /*  - 			*/
-/* 7 */ {BgGr,{(ul)iTerm	}, NULL, 3, 0}, /* Term			*/
-/* 8 */ {BgGr,{(ul)iTerm	}, NULL, 3, 0}  /* Term			*/
+/* 7 */ {BgGr,{(ul)iTerm	},  ex2, 3, 0}, /* Term			*/
+/* 8 */ {BgGr,{(ul)iTerm	},  ex3, 3, 0}  /* Term			*/
 };
 /* Term 			--------------------------------------- */
 tBog gTerm[]=
@@ -88,8 +88,8 @@ tBog gTerm[]=
 /* 2 */ {BgEn,{(ul)0			}, NULL, 3, 0}, /* END 			*/
 /* 3 */ {BgSy,{(ul)'*'		}, NULL, 5, 4}, /*  * 			*/
 /* 4 */ {BgSy,{(ul)'/'		}, NULL, 6, 2}, /*  / 			*/
-/* 5 */ {BgGr,{(ul)iFact	}, NULL, 1, 0}, /* Faktor		*/
-/* 6 */ {BgGr,{(ul)iFact	}, NULL, 1, 0}  /* Faktor		*/
+/* 5 */ {BgGr,{(ul)iFact	},  te1, 1, 0}, /* Faktor		*/
+/* 6 */ {BgGr,{(ul)iFact	},  te2, 1, 0}  /* Faktor		*/
 };
 /* Faktor 		--------------------------------------- */
 tBog gFact[]=

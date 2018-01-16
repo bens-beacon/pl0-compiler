@@ -1,7 +1,10 @@
 
-const a = 12;
-var b;
+const a = 12, b = 2;
+var x, y, z;
 
-b := a
+procedure b; x:=3;call b
+
+
+
 
 .

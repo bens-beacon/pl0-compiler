@@ -188,6 +188,7 @@ void checkKeyw()
 	{
 		/* Keyword 						*/
 		Morph.Val.Symb=(long)zBGN+ret;					/* Keywordcodes						*/
+    printf("%d",Morph.Val.Symb);
 		Morph.MC =mcSymb;
 	}
 }

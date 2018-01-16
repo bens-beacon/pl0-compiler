@@ -10,6 +10,7 @@
 * Konstantenblock schreiben. Wie groß muss der Platz pro Konstante sein?
 * Prozeduren werden mehrfach ins File geschrieben?
 * Was passiert genau wenn eine Konstante scchon angelegt wurde und nur der Index übernommen werden soll?
+* Schlüsselwort CALL funktioniert nicht. Erkennt es nicht und geht in Falschen Bogen.-> Liegt an der Suche!!!! lexer.c
 
 ### Infos
 

@@ -165,13 +165,44 @@ int st2()
 	return OK;
 }
 
+/* Rufe Funktion auf */
+int st8()
+{
+	printf(ANSI_COLOR_CYAN " >> st8!\n");
+
+	tBez * Bez_tmp = globalsearchBEZ(AktProc,Morph.Val.pStr);
+	if( Bez_tmp == NULL)
+	{
+		printf(ANSI_COLOR_RED " >> Procedure \"%s\" is not defined!\n",Morph.Val.pStr);	
+		exit(EXIT_FAILURE);			
+	}
+	else
+	{
+		if(Bez_tmp->Kz == KzVar)
+		{			
+			printf(ANSI_COLOR_RED " >> \"%s\" is a Var not a Proc!\n",Bez_tmp->pName);	
+			exit(EXIT_FAILURE);																		
+		}
+		else if(Bez_tmp->Kz == KzConst)
+		{
+			printf(ANSI_COLOR_RED " >> \"%s\" is a Const not a Proc!\n",Bez_tmp->pName);	
+			exit(EXIT_FAILURE);					
+		}
+		else if(Bez_tmp->Kz == KzProc)
+		{
+			code(call,Bez_tmp->IdxProc);			
+		}		
+	} 	
+	return OK;
+}
+
 /* Eingabe	 													*/
 int st9()
 {
 	tBez * Bez_tmp = globalsearchBEZ(AktProc,Morph.Val.pStr);
 	if( Bez_tmp == NULL)
 	{
-		printf(ANSI_COLOR_RED " >> Variable is not available!\n");	
+		printf(ANSI_COLOR_RED " >> Variable \"%s\" is not defined!\n",Morph.Val.pStr);	
 		exit(EXIT_FAILURE);			
 	}
 	else
@@ -182,17 +213,17 @@ int st9()
 			if(Bez_tmp->IdxProc==0) code(puAdrVrMain,Var_tmp->Dspl);	/* Mai*/
 			else if(AktProc->IdxProc == Bez_tmp->IdxProc) 
 															code(puAdrVrLocl,Var_tmp->Dspl);	/* Loc*/
-			else {code(puValVrGlob,Var_tmp->Dspl,AktProc->IdxProc);	}	/* Glo*/			
+			else {code(puAdrVrGlob,Var_tmp->Dspl,AktProc->IdxProc);	}	/* Glo*/			
 			code(getVal);																					/* GETVAL */		
 		}
 		else if(Bez_tmp->Kz == KzConst)
 		{
-			printf(ANSI_COLOR_RED " >> Its a Const not a Variable!\n");	
+			printf(ANSI_COLOR_RED " >> \"%s\" is a Const not a Variable!\n",Bez_tmp->pName);	
 			exit(EXIT_FAILURE);					
 		}
 		else if(Bez_tmp->Kz == KzProc)
 		{
-			printf(ANSI_COLOR_RED " >> Its a Proc not a Variable!\n");	
+			printf(ANSI_COLOR_RED " >> \"%s\" is a Proc not a Variable!\n",Morph.Val.pStr);
 			exit(EXIT_FAILURE);				
 		}		
 	}
