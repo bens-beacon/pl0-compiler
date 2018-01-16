@@ -7,6 +7,8 @@
 
 ### Fragen
 
+* Konstantenblock schreiben wir groß für jede Konstante
+
 ### Infos
 * bl5 löschen ist noch auskommentiert
 

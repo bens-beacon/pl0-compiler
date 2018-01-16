@@ -1,1 +1,6 @@
-const a = 2;.
+const a = 2,b = 3, c = 5;
+
+procedure r; 
+  const f = 8;!a;
+
+!a.

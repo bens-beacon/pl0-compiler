@@ -116,17 +116,6 @@ int pr1()
 {
 	printf(ANSI_COLOR_CYAN " >> pr1!\n");	
 
-	/* Schreibe Constantenblock 				*/
-	if(Constblock->first != NULL)
-	{	
-		
-		tConst* Const_tmp = Constblock->first->data;
-		for (;Constblock->curr->next!=NULL; Const_tmp = Constblock->curr->next->data)
-		{
-			printf("Konstante");
-			wr2ToCode(Const_tmp->Val);
-		}
-	}
 	return OK;									
 }
 

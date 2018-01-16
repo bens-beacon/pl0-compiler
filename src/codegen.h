@@ -34,5 +34,5 @@ int openOFile(char* arg);										/* Öffne Ausgabefile			*/
 int closeOFile(void);												/* Schließe Ausgabefile		*/
 void wr2ToCode(short x);
 void wr2ToCodeAtP(short x,char*pD);
-
+int writeConstblock(void);
 #endif

@@ -14,6 +14,7 @@ short  IdxProc;  														/* Zähler für Prozedur		*/
 int    LenCode;  														/* Länge Codeausgabeberei	*/
 FILE*  pOFile;															/* Ausgabe Datei					*/
 extern tProc* AktProc;
+extern tlist* Constblock;
 tMorph Morph;																/* Aktuelles Morphem			*/
 
 /* Schreibe aktuelle Programmcounter	*/
@@ -128,9 +129,34 @@ int openOFile(char* arg)
 /* Schließe das Codefile							*/
 int closeOFile(void)
 {
+  writeConstblock();
+
   char vBuf2[2];                            /* Für big/Little Endian */
   fseek(pOFile,0,SEEK_SET);									/* setzte Cursor an start */
   wr2ToCodeAtP(IdxProc,vBuf2);							/* Schreibe Anzahl Proc		*/
+
   if (fwrite(vBuf2,2,1,pOFile)==2) return OK;
   else return FAIL;
+}
+
+/* Schreibe den Konstantenblock       */
+int writeConstblock(void)
+{
+  fseek(pOFile,0,SEEK_END);                 /* Cursor ans Ende setzten*/
+
+  /* Schreibe Constantenblock 				*/
+	if(Constblock->first != NULL)
+	{	
+		Constblock->curr = Constblock->first;
+		for(;; Constblock->curr = Constblock->curr->next)
+		{
+			tConst* Const_tmp = Constblock->curr->data;
+			//wr2ToCode(Const_tmp->Val);
+      fwrite(&Const_tmp->Val,sizeof(int16_t),1,pOFile);
+
+			if(Constblock->curr==Constblock->last) break;	/* Abbruch		*/
+		}
+	}
+  return OK;
+
 }
