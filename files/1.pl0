@@ -1,2 +1,6 @@
-const a = 12, b = 13, c = 8;
+
+const a = 9;
+
+
+procedure a;;
 .

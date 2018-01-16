@@ -18,7 +18,7 @@ tBez* BezConstGlobal;												/* Globaler Bez für Const	*/
 /* Ist Konstantenname schon vorhanden */
 int bl1()
 {
-	printf(ANSI_COLOR_CYAN " >> bl1! Search for Const \"%s\"! \n", Morph.Val.pStr);
+	printf(ANSI_COLOR_CYAN " >> bl1! \n");
 
 	tBez* Bez_tmp = searchBEZ(AktProc, Morph.Val.pStr);
 	if(Bez_tmp != NULL)												/* Bez schon vorhanden ?	*/
@@ -41,7 +41,6 @@ int bl2()
 	{																					/* Nicht Vorhanden, erste */
 		tBez* BezConst = addValueBezConst(AktProc, BezConstGlobal, Morph.Val.Num);
 		insertend(AktProc->pLBez,BezConst);
-		printf("sdf %s",BezConst->pName);
 	}
 	else 																			/* Vorhanden, Index übern */
 	{
@@ -96,8 +95,9 @@ int bl5()
 	if( Proc_tmp->pParent != 0)
 	{
 		AktProc = Proc_tmp->pParent;						/* ElternProzedur wird akt*/
-	}							
-	//clear(Proc_tmp);
+	}	
+
+	clear(Proc_tmp);
 	CodeOut();																/* Schreibe i Ausgabedatei*/
 }
 
@@ -115,7 +115,7 @@ int bl6()
 int pr1()
 {
 	printf(ANSI_COLOR_CYAN " >> pr1!\n");	
-
+	/* Konstanten block hate extra Funktion im Codegen */
 	return OK;									
 }
 

@@ -161,17 +161,20 @@ void clear(tProc* Proc)
 	if(Proc->pLBez->last!=NULL)								/* Bis Liste alle					*/
 	{ 
 		tBez* Bez_tmp = Proc->pLBez->last->data;
-		if(Bez_tmp->Kz == KzProc) clear(Bez_tmp->pObj); /* untergeord Proc*/
-		if(Bez_tmp->Kz != KzProc)
+		//if(Bez_tmp->Kz == KzProc) clear(Bez_tmp->pObj); /* untergeord Proc*/
+
+		if(Bez_tmp->Kz == KzVar || Bez_tmp->Kz == KzConst)
 		{
+			free(Bez_tmp->pName);									/* lösche Name						*/	
 			free(Bez_tmp->pObj);									/* lösche Objekt					*/				
 			removelast(Proc->pLBez);							/* lösche letzten Bezei		*/
-			clear(Proc);
+			
+			//clear(Proc);
 		}																
 	}
 	else 
 	{
-		//printf("Löschen - Erfolgreich");
+		printf("Löschen - Erfolgreich");
 		free(Proc);															/* Procedur frei geben		*/
 	}
 }
