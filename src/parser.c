@@ -43,7 +43,7 @@ tBog gBlock[]=
 /* Statement  --------------------------------------- */
 tBog gState[]=
 {
-/* 0 */ {BgMo,{(ul)mcIdent}, NULL, 8, 1}, /* Ident		*/
+/* 0 */ {BgMo,{(ul)mcIdent},  st1, 8, 1}, /* Ident		*/
 /* 1 */ {BgSy,{(ul)zIF		}, NULL,11, 2}, /* IF				*/
 /* 2 */ {BgSy,{(ul)zWHL		}, NULL,14, 3}, /* WHILE		*/
 /* 3 */ {BgSy,{(ul)zBGN		}, NULL,17, 4}, /* BEGIN		*/
@@ -52,7 +52,7 @@ tBog gState[]=
 /* 6 */ {BgSy,{(ul)'!'		}, NULL,22, 7}, /*   !			*/
 /* 7 */ {BgNl,{						}, NULL,10, 0}, /* NIL			*/								
 /* 8 */ {BgSy,{(ul)zERG		}, NULL, 9, 0}, /* 	:=			*/ 								
-/* 9 */ {BgGr,{(ul)iExpr	}, NULL,10, 0}, /* Expressio*/
+/* 9 */ {BgGr,{(ul)iExpr	},  st2,10, 0}, /* Expressio*/
 /*10 */ {BgEn,{(ul)0			}, NULL, 0, 0}, /* Ende 		*/
 /*11 */ {BgGr,{(ul)iCond	}, NULL,12, 0}, /* Condition*/
 /*12 */ {BgSy,{(ul)zTHN		}, NULL,13, 0}, /* THEN			*/
@@ -95,7 +95,7 @@ tBog gTerm[]=
 tBog gFact[]=
 {
 /* 0 */ {BgMo,{(ul)mcIdent}, NULL, 5, 1}, /* Ident		*/
-/* 1 */ {BgMo,{(ul)mcNum  }, NULL, 5, 2}, /* Number		*/
+/* 1 */ {BgMo,{(ul)mcNum  },  fa1, 5, 2}, /* Number		*/
 /* 2 */ {BgSy,{(ul)'('    }, NULL, 3, 0}, /*   (			*/
 /* 3 */ {BgGr,{(ul)iExpr  }, NULL, 4, 0}, /* Expressio*/
 /* 4 */ {BgSy,{(ul)')'    }, NULL, 5, 0}, /*   )			*/

@@ -1,7 +1,7 @@
 
-const a = 9;
 
+var b;
 
-procedure a;;
-procedure a;;
+b := 3
+
 .

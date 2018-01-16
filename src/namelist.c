@@ -127,7 +127,7 @@ tBez* searchBEZ(tProc* Proc, char *pName)
 	while(1)
 	{
 		tBez* Bez_tmp = Proc->pLBez->curr->data;
-		if(0==strcmp(Bez_tmp->pName, pName)){return Proc->pLBez->first->data;}
+		if(0==strcmp(Bez_tmp->pName, pName)){return Bez_tmp;}
 		else if(Proc->pLBez->curr == Proc->pLBez->last){return NULL;}	
 		else Proc->pLBez->curr = Proc->pLBez->curr->next;
 	}

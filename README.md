@@ -9,6 +9,7 @@
 
 * Konstantenblock schreiben. Wie groß muss der Platz pro Konstante sein?
 * Prozeduren werden mehrfach ins File geschrieben?
+* Was passiert genau wenn eine Konstante scchon angelegt wurde und nur der Index übernommen werden soll?
 
 ### Infos
 

@@ -106,16 +106,17 @@ int bl5()
 int bl6()
 {
 	printf(ANSI_COLOR_CYAN " >> bl6!\n");	
+
 	tProc* Proc_tmp = AktProc;
 	code(entryProc,0,Proc_tmp->IdxProc,Proc_tmp->SpzzVar); /* entryproc	*/
 	return OK;
 }
 
-
 /* Abschlussarbeiten									*/
 int pr1()
 {
-	printf(ANSI_COLOR_CYAN " >> pr1!\n");	
+	printf(ANSI_COLOR_CYAN " >> pr1!\n");
+
 	/* Konstanten block hate extra Funktion im Codegen */
 	return OK;									
 }
@@ -123,10 +124,12 @@ int pr1()
 /* Wertzuweisung 	LS		PushAdrVar...	*/
 int st1()
 {
+	printf(ANSI_COLOR_CYAN " >> st1!\n");
+
 	tBez * Bez_tmp = globalsearchBEZ(AktProc,Morph.Val.pStr);
 	if( Bez_tmp == NULL)
 	{
-		printf(ANSI_COLOR_RED " >> Variable is not available!\n");	
+		printf(ANSI_COLOR_RED " >> Variable \"%s\" is not defined!\n",Morph.Val.pStr);	
 		exit(EXIT_FAILURE);			
 	}
 	else
@@ -141,12 +144,12 @@ int st1()
 		}
 		else if(Bez_tmp->Kz == KzConst)
 		{
-			printf(ANSI_COLOR_RED " >> Its a Const not a Variable!\n");	
+			printf(ANSI_COLOR_RED " >> \"%s\" is a Const not a Variable!\n",Bez_tmp->pName);	
 			exit(EXIT_FAILURE);					
 		}
 		else if(Bez_tmp->Kz == KzProc)
 		{
-			printf(ANSI_COLOR_RED " >> Its a Proc not a Variable!\n");	
+			printf(ANSI_COLOR_RED " >> \"%s\" is a Proc not a Variable!\n",Morph.Val.pStr);	
 			exit(EXIT_FAILURE);				
 		}		
 	} 	
@@ -156,6 +159,8 @@ int st1()
 /* Wertzuweisung RS										*/
 int st2()
 {
+	printf(ANSI_COLOR_CYAN " >> st2!\n");
+
 	code(storeVal);														/* StoreValue							*/
 	return OK;
 }
@@ -243,10 +248,13 @@ int fa1()
 	tConst* Const_tmp = searchConst(Morph.Val.Num);		
 	if(Const_tmp == NULL)											/* Konstenwert vorhanden?	*/
 	{																					/* Nicht Vorhanden, erste */
-		//tBez* BezConst = createBezConst(AktProc,Morph.Val.Num, Morph.Val.pStr);
-		//insertend(AktProc->pLBez,BezConst);
-		//Const_tmp = BezConst->pObj;
-		//code(puConst,Const_tmp->Idx);						/* Konstante anlegen 			*/
+		// Konstante anlegen
+		tConst *newConst 	= malloc(sizeof(tConst)); 
+		newConst->Kz			= KzConst;
+		newConst->Idx			= Constblock->length;	/* Index ist akt. Länge		*/
+		newConst->Val			= Morph.Val.Num;
+		insertend(Constblock,newConst);					/* Füge an Konstantenblock*/
+		code(puConst,newConst->Idx);						/* Konstante anlegen 			*/
 	}
 	else 																			/* Vorhanden, Index übern */
 	{
@@ -258,10 +266,12 @@ int fa1()
 /* Faktor anlegen											*/
 int fa2()
 {
+	printf(ANSI_COLOR_CYAN " >> fa2!\n");
+
 	tBez * Bez_tmp = globalsearchBEZ(AktProc,Morph.Val.pStr);
 	if( Bez_tmp == NULL)
 	{
-		printf(ANSI_COLOR_RED " >> Variable is not available!\n");	
+		printf(ANSI_COLOR_RED " >> Variable \"%s\" is not defined!\n",Morph.Val.pStr);	
 		exit(EXIT_FAILURE);			
 	}
 	else
@@ -281,7 +291,7 @@ int fa2()
 		}
 		else if(Bez_tmp->Kz == KzProc)
 		{
-			printf(ANSI_COLOR_RED " >> Its a Proc not a Variable!\n");	
+			printf(ANSI_COLOR_RED " >> \"%s\" is a Proc not a Variable!\n",Morph.Val.pStr);	
 			exit(EXIT_FAILURE);				
 		}		
 	} 
