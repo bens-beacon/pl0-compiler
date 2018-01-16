@@ -23,7 +23,7 @@ int bl1()
 	tBez* Bez_tmp = searchBEZ(AktProc, Morph.Val.pStr);
 	if(Bez_tmp != NULL)												/* Bez schon vorhanden ?	*/
 	{
-		printf(ANSI_COLOR_RED " >> Constname \"%s\" is already available!\n",Morph.Val.pStr);
+		printf(ANSI_COLOR_RED " >> Constname \"%s\" is already defined!\n",Morph.Val.pStr);
 		exit(EXIT_FAILURE);
 	}
 	tBez* BezConst = createBezConst(Morph.Val.pStr);/* Erstelle ConstBez*/
@@ -34,13 +34,14 @@ int bl1()
 /* Bezeichner mit Konstante anlegen	  */
 int bl2()
 {
-	printf(ANSI_COLOR_CYAN " >> bl2! Add Value to Const: %ld \n", Morph.Val.Num);
+	printf(ANSI_COLOR_CYAN " >> bl2! \n");
 
 	tConst* Const_tmp = searchConst(Morph.Val.Num);		
 	if(Const_tmp == NULL)											/* Konstenwert vorhanden?	*/
 	{																					/* Nicht Vorhanden, erste */
 		tBez* BezConst = addValueBezConst(AktProc, BezConstGlobal, Morph.Val.Num);
 		insertend(AktProc->pLBez,BezConst);
+		printf("sdf %s",BezConst->pName);
 	}
 	else 																			/* Vorhanden, Index übern */
 	{
@@ -118,6 +119,7 @@ int pr1()
 	/* Schreibe Constantenblock 				*/
 	if(Constblock->first != NULL)
 	{	
+		
 		tConst* Const_tmp = Constblock->first->data;
 		for (;Constblock->curr->next!=NULL; Const_tmp = Constblock->curr->next->data)
 		{

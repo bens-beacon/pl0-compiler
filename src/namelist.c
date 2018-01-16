@@ -30,7 +30,10 @@ tBez* createBezProc(tProc* Proc, char *pName)
 		newBez->Kz 				= KzProc;
 		newBez->IdxProc		= Proc->IdxProc;
 		newBez->pObj 			= newProc;
-		newBez->pName			= pName;
+		// make space for pName
+		char* tmp_pName = malloc (strlen(pName));
+		strcpy(tmp_pName,pName);
+		newBez->pName			= tmp_pName;
 		
 		return newBez;
 }
@@ -45,7 +48,10 @@ tBez* createBezVar(tProc* Proc,char *pName)
 		newBez->Kz 				= KzVar;
 		newBez->IdxProc		= Proc->IdxProc;
 		newBez->pObj 			= newVar;
-		newBez->pName			= pName;
+		// make space for pName
+		char* tmp_pName = malloc (strlen(pName));
+		strcpy(tmp_pName,pName);
+		newBez->pName			= tmp_pName;
 		
 		return newBez;
 }
@@ -59,7 +65,10 @@ tBez* createBezConst(char *pName)
 		tBez *newBez 			= malloc(sizeof(tBez));
 		newBez->Kz 				= KzConst;
 		newBez->pObj 			= newConst;
-		newBez->pName			= pName;
+		// make space for pName
+		char* tmp_pName = malloc (strlen(pName));
+		strcpy(tmp_pName,pName);
+		newBez->pName			= tmp_pName;
 		return newBez;
 }
 
