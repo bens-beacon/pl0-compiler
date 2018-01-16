@@ -1,7 +1,7 @@
 
-
+const a = 12;
 var b;
 
-b := 3
+b := a
 
 .

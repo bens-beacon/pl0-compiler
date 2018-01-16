@@ -94,7 +94,7 @@ tBog gTerm[]=
 /* Faktor 		--------------------------------------- */
 tBog gFact[]=
 {
-/* 0 */ {BgMo,{(ul)mcIdent}, NULL, 5, 1}, /* Ident		*/
+/* 0 */ {BgMo,{(ul)mcIdent},  fa2, 5, 1}, /* Ident		*/
 /* 1 */ {BgMo,{(ul)mcNum  },  fa1, 5, 2}, /* Number		*/
 /* 2 */ {BgSy,{(ul)'('    }, NULL, 3, 0}, /*   (			*/
 /* 3 */ {BgGr,{(ul)iExpr  }, NULL, 4, 0}, /* Expressio*/

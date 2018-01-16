@@ -258,7 +258,7 @@ int fa1()
 	}
 	else 																			/* Vorhanden, Index übern */
 	{
-
+		code(puConst,Const_tmp->Idx);						/* Konstante anlegen 			*/
 	}
 	return OK;
 }
@@ -279,9 +279,9 @@ int fa2()
 		if(Bez_tmp->Kz == KzVar)
 		{		
 			tVar* Var_tmp = Bez_tmp->pObj;
-			if(Bez_tmp->IdxProc==0) code(puAdrVrMain,Var_tmp->Dspl);	/* Mai*/
+			if(Bez_tmp->IdxProc==0) code(puValVrMain,Var_tmp->Dspl);	/* Mai*/
 			else if(AktProc->IdxProc == Bez_tmp->IdxProc) 
-															code(puAdrVrLocl,Var_tmp->Dspl);	/* Loc*/
+															code(puValVrLocl,Var_tmp->Dspl);	/* Loc*/
 			else {code(puValVrGlob,Var_tmp->Dspl,AktProc->IdxProc);	}	/* Glo*/				
 		}
 		else if(Bez_tmp->Kz == KzConst)
