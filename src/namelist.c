@@ -169,12 +169,14 @@ void clear(tProc* Proc)
 			free(Bez_tmp->pObj);									/* lösche Objekt					*/				
 			removelast(Proc->pLBez);							/* lösche letzten Bezei		*/
 			
-			//clear(Proc);
+			clear(Proc);
 		}																
 	}
 	else 
 	{
 		printf("Löschen - Erfolgreich");
-		free(Proc);															/* Procedur frei geben		*/
+		//free(Proc);															/* Procedur frei geben		*/
 	}
+
+
 }
