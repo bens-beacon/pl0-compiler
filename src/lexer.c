@@ -144,7 +144,7 @@ void fb()
     case 8:Morph.Val.Symb=(long)zGE; 	Morph.MC =mcSymb;
     break;
     /* Buchstabe ---- 		*/
-    case 2:Morph.Val.pStr=vBuf;			 Morph.MC =mcIdent;
+    case 2:Morph.Val.pStr=vBuf;			  Morph.MC =mcIdent;
     break;
     /* Wort --------- 		*/
     case 9: checkKeyw(); 

@@ -31,11 +31,11 @@ int bl1()
 /* Bezeichner mit Konstante anlegen	  */
 int bl2()
 {
-	printf(ANSI_COLOR_CYAN " >> bl2!\n");
-	tConst* Const_tmp = searchConst( Val);		
+	printf(ANSI_COLOR_CYAN " >> bl2! Create Const %s : \n",  Morph.Val.pStr);
+	tConst* Const_tmp = searchConst(Morph.Val.Num);		
 	if(Const_tmp == NULL)											/* Konstenwert vorhanden?	*/
 	{																					/* Nicht Vorhanden, erste */
-		tBez* BezConst = createBezConst(AktProc,Val, Morph.Val.pStr);
+		tBez* BezConst = createBezConst(AktProc, Morph.Val.Num, Morph.Val.pStr);
 		insertend(AktProc->pLBez,BezConst);
 	}
 	else 																			/* Vorhanden, Index übern */
@@ -49,17 +49,17 @@ int bl2()
 /* Bezeichner mit Variable anlegen 	  */
 int bl3()
 {
-	printf(ANSI_COLOR_CYAN " >> bl3!\n");
+	printf(ANSI_COLOR_CYAN " >> bl3! Ident: %s \n",Morph.Val.pStr);
 	tBez* Bez_tmp = searchBEZ(AktProc, Morph.Val.pStr);
 	
 	if(Bez_tmp != NULL)												/* Bez schon vorhanden ?	*/
 	{
-		printf(ANSI_COLOR_RED " >> Varname \"%s\"  is already available!\n", Morph.Val.pStr);	
+		printf(ANSI_COLOR_RED " >> Varname \"%s\"  is already defined!\n", Morph.Val.pStr);	
 		exit(EXIT_FAILURE);
 	}
 	else
 	{
-			tBez * BezVar = createBezVar(AktProc, Morph.Val.pStr);
+			tBez* BezVar = createBezVar(AktProc, Morph.Val.pStr);
 			insertend(AktProc->pLBez,BezVar);
 	}
 	return OK;
@@ -117,6 +117,7 @@ int pr1()
 		tConst* Const_tmp = Constblock->first->data;
 		for (;Constblock->curr->next!=NULL; Const_tmp = Constblock->curr->next->data)
 		{
+			printf("Konstante");
 			wr2ToCode(Const_tmp->Val);
 		}
 	}
