@@ -33,7 +33,7 @@ tBog gBlock[]=
 /* 9 */ {BgMo,{(ul)mcIdent},  bl3,11, 0}, 	/* Ident		*/
 /*10 */ {BgSy,{(ul)','		}, NULL, 9, 0}, 	/*   ,			*/
 /*11 */ {BgSy,{(ul)';'		}, NULL, 2,10}, 	/*   ;			*/
-/*12 */ {BgMo,{(ul)mcIdent}, NULL,13, 0}, 	/* Ident		*/
+/*12 */ {BgMo,{(ul)mcIdent},  bl4,13, 0}, 	/* Ident		*/
 /*13 */ {BgSy,{(ul)';'		}, NULL,14, 0}, 	/*   ;			*/	
 /*14 */ {BgGr,{(ul)iBlock	}, NULL,15, 0}, 	/* Block		*/	
 /*15 */ {BgSy,{(ul)';'		}, NULL, 2, 0}, 	/*   ;			*/

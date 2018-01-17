@@ -72,16 +72,27 @@ int bl3()
 /* Bezeichner mit neuen Procedur 		  */
 int bl4()
 {
+	printf(ANSI_COLOR_CYAN " >> bl4!\n");	
+
 	tBez* Bez_tmp = searchBEZ(AktProc, Morph.Val.pStr);
-	if(Bez_tmp == NULL)
+	if(Bez_tmp != NULL)
 	{
-		printf(ANSI_COLOR_RED " >> Procedur \"%s\" is already available!\n",Morph.Val.pStr);	
-		exit(EXIT_FAILURE);
+		if(Bez_tmp->Kz == KzConst)
+		{
+			printf(ANSI_COLOR_RED " >> \"%s\" is already defined as Const!\n",Bez_tmp->pName);	
+			exit(EXIT_FAILURE);					
+		}
+		else if(Bez_tmp->Kz == KzVar)
+		{
+			printf(ANSI_COLOR_RED " >> \"%s\" is already defined as Var!\n",Morph.Val.pStr);	
+			exit(EXIT_FAILURE);				
+		}	
 	}
 	else
 	{
-			tBez * BezProc = createBezProc(AktProc, Morph.Val.pStr);
-			insertend(AktProc->pLBez,BezProc);
+		tBez * BezProc = createBezProc(AktProc, Morph.Val.pStr);
+		insertend(AktProc->pLBez,BezProc);
+		AktProc = BezProc->pObj;
 	}	
 	return OK;
 }
@@ -169,7 +180,7 @@ int st2()
 int st8()
 {
 	printf(ANSI_COLOR_CYAN " >> st8!\n");
-
+	
 	tBez * Bez_tmp = globalsearchBEZ(AktProc,Morph.Val.pStr);
 	if( Bez_tmp == NULL)
 	{

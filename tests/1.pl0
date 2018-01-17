@@ -2,9 +2,16 @@
 const a = 12, b = 2;
 var x, y, z;
 
-procedure b; x:=3;call b
+PROCEDURE G;
+  var b;
+  BEGIN
+    ?x
+  END;
 
 
 
+BEGIN
+  x := y
+END
 
 .
