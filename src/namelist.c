@@ -176,6 +176,23 @@ void clear(tProc* Proc)
 		//printf("Löschen - Erfolgreich");
 		free(Proc);															/* Procedur frei geben		*/
 	}
+}
 
+int pushLabel(long n)
+{
+	tLabl* tmp_Label = malloc(sizeof(tLabl));
+	tmp_Label->iJmp = n;
+	insertend(Labellist, tmp_Label);
+	return OK;
+}
 
+tLabl* pullLabel()
+{	
+	return Labellist->last->data;
+}
+
+int rmLabel()
+{
+	free(Labellist->last->data);
+	return OK;
 }

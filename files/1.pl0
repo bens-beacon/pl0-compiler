@@ -1,5 +1,5 @@
 
-const a = 12, b = 2;
+const a = 12, b = 2, c = 8;
 var x, y, z;
 
 PROCEDURE G;
@@ -18,7 +18,7 @@ PROCEDURE D;
 
 
 BEGIN
-  x := y
+  call D
 END
 
 .

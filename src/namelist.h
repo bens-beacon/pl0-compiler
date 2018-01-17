@@ -21,6 +21,9 @@
 #include <stdio.h>
 #include <string.h>	
 
+#define OK 1
+#define FAIL 0
+
 /* Includes 				*/
 #include "list.h"
 #include "color.h"
@@ -77,9 +80,9 @@ tBez*   createBezVar(tProc* Proc,char *pName);
 tBez*   createBezProc(tProc* Proc, char *pName);
 tProc*  createProc(tProc* pParent);
 
-int pushLabel(void);												/* Label	 								*/
-int popAndInsLabl(int x);
-int popLabl(void);
+int pushLabel(n);														/* Label	 								*/
+tLabl* pullLabel();
+int rmLabel();
 
 #endif
 
