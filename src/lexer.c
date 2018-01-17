@@ -175,10 +175,11 @@ const char*  Keyw[]=
 void checkKeyw()
 {
 	int n=sizeof Keyw/sizeof(char*);
-	int ret = 1;
+	int ret;
 		
 	ret = binary_search(Keyw,n,vBuf);
-	if(ret==1)																
+  printf("%d",ret);
+	if(ret==FAIL)																
 	{	
 		/* Ident 							*/
 		Morph.Val.pStr=vBuf; 										/* Setzte Ident						*/
@@ -188,7 +189,6 @@ void checkKeyw()
 	{
 		/* Keyword 						*/
 		Morph.Val.Symb=(long)zBGN+ret;					/* Keywordcodes						*/
-    printf("%d",Morph.Val.Symb);
 		Morph.MC =mcSymb;
 	}
 }
@@ -208,13 +208,14 @@ int binary_search( const char** M, int n, const char* X)
     if (rechts < links) break; 							/* alles durchsucht				*/
  
     bool=strcmp(M[mitte],X);								/* gibt -1 0 1 zurück			*/
-    if (bool==0) ret=mitte;   							 
+    if (bool==0) ret=OK;   							 
     else 
 			if (bool >0) rechts = mitte; 					/* linker Abschnitt 			*/
 			else  															
 				links = mitte + 1;    						
     n=(n)/2;
-	}while (bool!=0);
+	}while (bool==OK);
+
 	return ret;
 }
 
