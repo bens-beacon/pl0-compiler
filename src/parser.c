@@ -212,13 +212,13 @@ int main(int argc, char *argv[])
 	
 	Constblock = createlist();								/* Erstelle Konstantenblo */
 	Labellist = createlist();									/* Erstelle Labelkeller 	*/
-	AktProc = createProc(0, 0);								/* MainProzedur						*/
+	AktProc = createProc(NULL);								/* MainProzedur						*/
 	
 	/* Write Code in CodeFile */
 	openOFile(pBuf);
 
 	pars(gProg);
-
+	
 	closeOFile();
 	
 	

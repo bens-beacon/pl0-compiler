@@ -11,12 +11,12 @@ extern tlist* Labellist;										/* Labelkeller						*/
 
 /* ---- Funktionen -------------------------------------------------- */ 
 /* Procedure erstellen 		*/
-tProc* createProc(short IdxCount, tProc* pParent)
+tProc* createProc(tProc* pParent)
 {
 	tProc *Proc 				= malloc(sizeof(tProc)); 
 	Proc->Kz						= KzProc;
 	Proc->pLBez 				= createlist();
-	Proc->IdxProc 			= IdxCount;
+	Proc->IdxProc 			= IdxProc;
 	Proc->pParent 			= pParent;
 	Proc->SpzzVar				= 0;
 	IdxProc++;
@@ -25,7 +25,7 @@ tProc* createProc(short IdxCount, tProc* pParent)
 /* tBez Proc anhängen			*/
 tBez* createBezProc(tProc* Proc, char *pName)																			
 {
-		tProc *newProc		= createProc(Proc->IdxProc++,Proc);								
+		tProc *newProc		= createProc(Proc);							
 		tBez *newBez			= malloc(sizeof(tBez));
 		newBez->Kz 				= KzProc;
 		newBez->IdxProc		= Proc->IdxProc;
@@ -173,7 +173,7 @@ void clear(tProc* Proc)
 	}
 	else 
 	{
-		printf("Löschen - Erfolgreich");
+		//printf("Löschen - Erfolgreich");
 		free(Proc);															/* Procedur frei geben		*/
 	}
 

@@ -75,7 +75,7 @@ tBez* 	addValueBezConst(tProc* Proc,	tBez* ConstBez,long Val);
 tBez*   createBezConstIdx(tProc* Proc,long Val,char *pName,int Idx);
 tBez*   createBezVar(tProc* Proc,char *pName);
 tBez*   createBezProc(tProc* Proc, char *pName);
-tProc*  createProc(short IdxProc, tProc* pParent);
+tProc*  createProc(tProc* pParent);
 
 int pushLabel(void);												/* Label	 								*/
 int popAndInsLabl(int x);

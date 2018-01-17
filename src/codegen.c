@@ -102,7 +102,6 @@ int CodeOut(void)
 {
   unsigned short Len=(unsigned short)(pCode-vCode);
   wr2ToCodeAtP((short)Len,vCode+1);							/* Schreibe Code     	*/
-  wr2ToCodeAtP((short)AktProc->SpzzVar,vCode+5);/* Schreibe Variable 	*/
   if (Len==fwrite(vCode,sizeof(char),Len,pOFile))
   { 
     vCode =pCode;                           /* Clean Buffer           */

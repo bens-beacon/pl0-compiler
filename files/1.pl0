@@ -9,8 +9,8 @@ PROCEDURE G;
   END;
 
 
-PROCEDURE f;
-  var d;
+PROCEDURE D;
+  var b;
   BEGIN
     ?x
   END;
