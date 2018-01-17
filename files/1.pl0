@@ -1,7 +1,10 @@
 
 const a = 12, b = 2;
 var x, y, z;
-call x
+
+procedure a;x:=y;
+
+call g
 
 
 
