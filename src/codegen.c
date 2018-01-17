@@ -2,8 +2,6 @@
  * C-Code
  * Code by Ben
  * 
- * Statt dem pCode könnte man auch eine Relativadresse nehmen!
- * 
 */
 
 #include "codegen.h"
@@ -105,7 +103,11 @@ int CodeOut(void)
   unsigned short Len=(unsigned short)(pCode-vCode);
   wr2ToCodeAtP((short)Len,vCode+1);							/* Schreibe Code     	*/
   wr2ToCodeAtP((short)AktProc->SpzzVar,vCode+5);/* Schreibe Variable 	*/
-  if (Len==fwrite(vCode,sizeof(char),Len,pOFile)) return OK;
+  if (Len==fwrite(vCode,sizeof(char),Len,pOFile))
+  { 
+    vCode =pCode;                           /* Clean Buffer           */
+    return OK;
+  }
   else return FAIL;
 }
 
@@ -117,7 +119,6 @@ int openOFile(char* arg)
   strcpy(vName,arg);												/* Erstelle File mit Name */
   if (strstr(vName,".pl0")==NULL) strcat(vName,".cl0");
   else *(strchr(vName,'.')+1)='c';
-
   if ((pOFile=fopen(vName,"w"))!=NULL) 		  /* Öffne es								*/
   {
     fwrite(&i,sizeof(int32_t),1,pOFile);		/* Fülle es mit nullen		*/
@@ -129,7 +130,7 @@ int openOFile(char* arg)
 /* Schließe das Codefile							*/
 int closeOFile(void)
 {
-  writeConstblock();
+  writeConstblock();                        /* Schreibe Konstantenbloc*/
 
   char vBuf2[2];                            /* Für big/Little Endian */
   fseek(pOFile,0,SEEK_SET);									/* setzte Cursor an start */
