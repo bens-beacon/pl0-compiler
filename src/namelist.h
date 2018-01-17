@@ -80,7 +80,8 @@ tBez*   createBezVar(tProc* Proc,char *pName);
 tBez*   createBezProc(tProc* Proc, char *pName);
 tProc*  createProc(tProc* pParent);
 
-int pushLabel(n);														/* Label	 								*/
+int pushLabel();														/* Label	 								*/
+int changeLabel(long n);
 tLabl* pullLabel();
 int rmLabel();
 

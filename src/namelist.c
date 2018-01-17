@@ -178,21 +178,29 @@ void clear(tProc* Proc)
 	}
 }
 
-int pushLabel(long n)
+/* Erstelle Label					*/
+int pushLabel()
 {
 	tLabl* tmp_Label = malloc(sizeof(tLabl));
-	tmp_Label->iJmp = n;
 	insertend(Labellist, tmp_Label);
 	return OK;
 }
-
+/* Ändere letztes Label		*/
+int changeLabel(long n)
+{
+	tLabl* tmp_Label = Labellist->last->data;
+	tmp_Label->iJmp = n;
+	return OK;
+}
+/* Bekomme letztes Label	*/
 tLabl* pullLabel()
 {	
 	return Labellist->last->data;
 }
-
+/* Lösche letztes Label		*/
 int rmLabel()
 {
+	removelast(Labellist);
 	free(Labellist->last->data);
 	return OK;
 }
