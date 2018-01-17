@@ -190,6 +190,42 @@ int st2()
 	return OK;
 }
 
+/* IF nach Condition									*/
+int st3()
+{
+
+	return OK;
+}
+
+/* IF nach Statement 									*/
+int st4()
+{
+
+	return OK;
+}
+
+/* WHILE															*/
+int st5()
+{
+
+	return OK;
+}
+
+/* WHILE nach Condition								*/
+int st6()
+{
+
+	return OK;
+}
+
+/* WHILE	nach Statement						*/
+int st7()
+{
+
+	return OK;
+}
+
+
 /* Rufe Funktion auf */
 int st8()
 {
