@@ -9,6 +9,13 @@ PROCEDURE G;
   END;
 
 
+PROCEDURE f;
+  var d;
+  BEGIN
+    ?x
+  END;
+
+
 
 BEGIN
   x := y

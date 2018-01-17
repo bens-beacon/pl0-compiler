@@ -173,8 +173,8 @@ void clear(tProc* Proc)
 	}
 	else 
 	{
-		//printf("Löschen - Erfolgreich");
-		//free(Proc);															/* Procedur frei geben		*/
+		printf("Löschen - Erfolgreich");
+		free(Proc);															/* Procedur frei geben		*/
 	}
 
 

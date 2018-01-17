@@ -63,7 +63,7 @@ int bl3()
 	}
 	else
 	{
-			tBez* BezVar = createBezVar(AktProc, Morph.Val.pStr);
+			tBez* BezVar = createBezVar(AktProc, Morph.Val.pStr); 
 			insertend(AktProc->pLBez,BezVar);
 	}
 	return OK;
@@ -79,7 +79,7 @@ int bl4()
 	{
 		if(Bez_tmp->Kz == KzConst)
 		{
-			printf(ANSI_COLOR_RED " >> \"%s\" is already defined as Const!\n",Bez_tmp->pName);	
+			printf(ANSI_COLOR_RED " >> \"%s\" is already defined as Const!\n",Morph.Val.pStr);	
 			exit(EXIT_FAILURE);					
 		}
 		else if(Bez_tmp->Kz == KzVar)
@@ -87,6 +87,11 @@ int bl4()
 			printf(ANSI_COLOR_RED " >> \"%s\" is already defined as Var!\n",Morph.Val.pStr);	
 			exit(EXIT_FAILURE);				
 		}	
+		else if(Bez_tmp->Kz == KzProc)
+		{
+			printf(ANSI_COLOR_RED " >> \"%s\" is already defined as Proc!\n",Morph.Val.pStr);	
+			exit(EXIT_FAILURE);				
+		}
 	}
 	else
 	{
@@ -155,7 +160,7 @@ int st1()
 		}
 		else if(Bez_tmp->Kz == KzConst)
 		{
-			printf(ANSI_COLOR_RED " >> \"%s\" is a Const not a Variable!\n",Bez_tmp->pName);	
+			printf(ANSI_COLOR_RED " >> \"%s\" is a Const not a Variable!\n",Morph.Val.pStr);	
 			exit(EXIT_FAILURE);					
 		}
 		else if(Bez_tmp->Kz == KzProc)
