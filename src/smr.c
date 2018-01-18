@@ -198,8 +198,6 @@ int st3()
 	printf(ANSI_COLOR_CYAN " >> st3!\n");
 
 	int jn_start = (pCode-vCode)+1;						/* Zeigt jnot Adressesbyte*/
-
-	printf(" Start Adres: %d",jn_start);
 	pushLabel(jn_start);											/* Add Label							*/
 	code(jnot,0);
 	return OK;
@@ -211,11 +209,7 @@ int st4()
 	printf(ANSI_COLOR_CYAN " >> st4!\n");
 	int jn_start = getNjmp();									/* Get JmpNumber					*/
 	int jn_end = pCode-vCode;
-	printf(" Curr: %d",jn_end);
 	int n_bytes = jn_end-jn_start-2;
-
-	printf(" Size %d",n_bytes);
-
 	wr2ToCodeAtP(n_bytes,vCode+jn_start);			/* Adresse nachtragen			*/
 	return OK;
 }
@@ -223,20 +217,31 @@ int st4()
 /* WHILE															*/
 int st5()
 {
-
+	pushLabel(pCode-vCode);
 	return OK;
 }
 
 /* WHILE nach Condition								*/
 int st6()
 {
-
+	int jn_start = (pCode-vCode)+1;						/* Zeigt jnot Adressesbyte*/
+	pushLabel(jn_start);											/* Add Label							*/
+	code(jnot,0);
 	return OK;
 }
 
 /* WHILE	nach Statement						*/
 int st7()
 {
+	printf(ANSI_COLOR_CYAN " >> st4!\n");
+	int jn_start = getNjmp();									/* Get JmpNumber					*/
+	int jn_end = pCode-vCode;
+	int n_bytes = jn_end-jn_start+1;
+	wr2ToCodeAtP(n_bytes,vCode+jn_start);			/* Adresse nachtragen			*/
+
+	int co_start = getNjmp();
+	n_bytes = pCode-vCode-co_start+3;
+	code(jmp,-n_bytes);
 
 	return OK;
 }

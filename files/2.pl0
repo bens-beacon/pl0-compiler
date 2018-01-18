@@ -1,5 +1,17 @@
 var a,b,Max;
+
 procedure p1;
-begin if a>b then Max:=a  end;
-!2
+begin 
+  a := 3;
+  while a>1 do 
+  begin
+    !3; 
+    a :=a-1  
+  end;
+end
+
+begin
+  call p1
+  
+end
 .

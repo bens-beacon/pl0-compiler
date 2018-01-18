@@ -45,7 +45,7 @@ tBog gState[]=
 {
 /* 0 */ {BgMo,{(ul)mcIdent},  st1, 8, 1}, /* Ident		*/
 /* 1 */ {BgSy,{(ul)zIF		}, NULL,11, 2}, /* IF				*/
-/* 2 */ {BgSy,{(ul)zWHL		}, NULL,14, 3}, /* WHILE		*/
+/* 2 */ {BgSy,{(ul)zWHL		},  st5,14, 3}, /* WHILE		*/
 /* 3 */ {BgSy,{(ul)zBGN		}, NULL,17, 4}, /* BEGIN		*/
 /* 4 */ {BgSy,{(ul)zCLL		}, NULL,20, 5}, /* CALL			*/
 /* 5 */ {BgSy,{(ul)'?'		}, NULL,21, 6}, /*   ?			*/
@@ -57,9 +57,9 @@ tBog gState[]=
 /*11 */ {BgGr,{(ul)iCond	},  st3,12, 0}, /* Condition*/
 /*12 */ {BgSy,{(ul)zTHN		}, NULL,13, 0}, /* THEN			*/
 /*13 */ {BgGr,{(ul)iState	},  st4,10, 0}, /* Statement*/
-/*14 */ {BgGr,{(ul)iCond	}, NULL,15, 0}, /* Condition*/
+/*14 */ {BgGr,{(ul)iCond	},  st6,15, 0}, /* Condition*/
 /*15 */ {BgSy,{(ul)zDO		}, NULL,16, 0}, /* DO				*/
-/*16 */ {BgGr,{(ul)iState	}, NULL,10, 0}, /* Statement*/
+/*16 */ {BgGr,{(ul)iState	},  st7,10, 0}, /* Statement*/
 /*17 */ {BgGr,{(ul)iState	}, NULL,19, 0}, /* Statement*/
 /*18 */ {BgSy,{(ul)';'		}, NULL,17, 0}, /*   ;			*/
 /*19 */ {BgSy,{(ul)zEND		}, NULL,10,18}, /* END			*/
