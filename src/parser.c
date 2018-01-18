@@ -54,9 +54,9 @@ tBog gState[]=
 /* 8 */ {BgSy,{(ul)zERG		}, NULL, 9, 0}, /* 	:=			*/ 								
 /* 9 */ {BgGr,{(ul)iExpr	},  st2,10, 0}, /* Expressio*/
 /*10 */ {BgEn,{(ul)0			}, NULL, 0, 0}, /* Ende 		*/
-/*11 */ {BgGr,{(ul)iCond	}, NULL,12, 0}, /* Condition*/
+/*11 */ {BgGr,{(ul)iCond	},  st3,12, 0}, /* Condition*/
 /*12 */ {BgSy,{(ul)zTHN		}, NULL,13, 0}, /* THEN			*/
-/*13 */ {BgGr,{(ul)iState	}, NULL,10, 0}, /* Statement*/
+/*13 */ {BgGr,{(ul)iState	},  st4,10, 0}, /* Statement*/
 /*14 */ {BgGr,{(ul)iCond	}, NULL,15, 0}, /* Condition*/
 /*15 */ {BgSy,{(ul)zDO		}, NULL,16, 0}, /* DO				*/
 /*16 */ {BgGr,{(ul)iState	}, NULL,10, 0}, /* Statement*/
@@ -108,13 +108,13 @@ tBog gCond[]=
 /* 1 */ {BgGr,{(ul)iExpr	}, NULL, 4, 0}, /* Expressio*/
 /* 2 */ {BgGr,{(ul)iExpr	}, NULL, 3, 0}, /* Expressio*/
 /* 3 */ {BgEn,{(ul)0			}, NULL, 0, 0}, /* END 			*/
-/* 4 */ {BgSy,{(ul)'='		}, NULL,10, 5}, /*  = 			*/
-/* 5 */ {BgSy,{(ul)'#'		}, NULL,10, 6}, /*  # 			*/
-/* 6 */ {BgSy,{(ul)'<'		}, NULL,10, 7}, /*  < 			*/
-/* 7 */ {BgSy,{(ul)zLE		}, NULL,10, 8}, /*  <= 			*/
-/* 8 */ {BgSy,{(ul)'>'		}, NULL,10, 9}, /*  > 			*/
-/* 9 */ {BgSy,{(ul)zGE		}, NULL,10, 0}, /*  >= 			*/
-/*10 */ {BgGr,{(ul)iExpr	}, NULL, 3, 0}  /* Expressio*/
+/* 4 */ {BgSy,{(ul)'='		},  co2,10, 5}, /*  = 			*/
+/* 5 */ {BgSy,{(ul)'#'		},  co3,10, 6}, /*  # 			*/
+/* 6 */ {BgSy,{(ul)'<'		},  co4,10, 7}, /*  < 			*/
+/* 7 */ {BgSy,{(ul)zLE		},  co5,10, 8}, /*  <= 			*/
+/* 8 */ {BgSy,{(ul)'>'		},  co6,10, 9}, /*  > 			*/
+/* 9 */ {BgSy,{(ul)zGE		},  co7,10, 0}, /*  >= 			*/
+/*10 */ {BgGr,{(ul)iExpr	},  co8, 3, 0}  /* Expressio*/
 };
 
 /* Graphenadressen	*/

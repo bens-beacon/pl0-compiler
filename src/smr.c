@@ -14,6 +14,8 @@ extern tMorph Morph;												/* Aktuelles Morphem			*/
 extern tlist* Constblock;										/* Konstanteliste					*/
 extern tlist* Labellist;										/* Labelkeller						*/
 tBez* BezConstGlobal;												/* Globaler Bez für Const	*/
+extern char* pCode;
+extern char* vCode;
 
 /* Ist Konstantenname schon vorhanden */
 int bl1()
@@ -193,14 +195,28 @@ int st2()
 /* IF nach Condition									*/
 int st3()
 {
+	printf(ANSI_COLOR_CYAN " >> st3!\n");
 
+	int jn_start = (pCode-vCode)+1;						/* Zeigt jnot Adressesbyte*/
+
+	printf(" Start Adres: %d",jn_start);
+	pushLabel(jn_start);											/* Add Label							*/
+	code(jnot,0);
 	return OK;
 }
 
 /* IF nach Statement 									*/
 int st4()
 {
+	printf(ANSI_COLOR_CYAN " >> st4!\n");
+	int jn_start = getNjmp();									/* Get JmpNumber					*/
+	int jn_end = pCode-vCode;
+	printf(" Curr: %d",jn_end);
+	int n_bytes = jn_end-jn_start-2;
 
+	printf(" Size %d",n_bytes);
+
+	wr2ToCodeAtP(n_bytes,vCode+jn_start);			/* Adresse nachtragen			*/
 	return OK;
 }
 

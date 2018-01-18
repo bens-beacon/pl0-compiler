@@ -80,10 +80,10 @@ tBez*   createBezVar(tProc* Proc,char *pName);
 tBez*   createBezProc(tProc* Proc, char *pName);
 tProc*  createProc(tProc* pParent);
 
-int pushLabel();														/* Label	 								*/
-int changeLabel(long n);
+int pushLabel(int n);												/* Label	 								*/
 tLabl* pullLabel();
 int rmLabel();
+int getNjmp();
 
 #endif
 
