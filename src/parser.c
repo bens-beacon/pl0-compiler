@@ -132,18 +132,20 @@ int pars(tBog* pGraph)
 
 
 
-	/* ---- Print ------------------------------------------------------*/
+	/* 
+	// Ausgabe:
+	// Gebe Aktuellen / Folge, Nächsten Bogen und Morphem aus
 	int g= 0;
-	/* Finde atuellen Graph 		*/
+	// Finde atuellen Graph 		
 	for(int i=0;i<7;i++){ if (vGr[i] == pBog) Graph=i;}	
 	
-	/* Finde aktuellen Zustand	*/
+	// Finde aktuellen Zustand	
 	tBog *Gra = vGr[Graph];
 	for(g=0;;g++)														
 	{
 		if(Gra[g].iAlt== pBog->iAlt && Gra[g].iNext== pBog->iNext	) break;
 	}
-	/* Ausgabe 									*/
+	// Ausgabe 									
 	printf(ANSI_COLOR_GREEN "");	
 	printf("Graph: %-3d | AkBo: %-2i | (Next: %-2i Alt: %-2i) | ",Graph,g,pBog->iNext,pBog->iAlt); 
 	switch(Morph.MC)
@@ -159,7 +161,7 @@ int pars(tBog* pGraph)
 		break;
 	}
 	printf("\n");
-	/* ---- Print ------------------------------------------------------*/
+	*/
 
 
 		
@@ -216,13 +218,9 @@ int main(int argc, char *argv[])
 	
 	/* Write Code in CodeFile */
 	openOFile(pBuf);
-
 	pars(gProg);
-	
-	closeOFile();
-	
-	
-	
+	closeOFile();	
+
 	return 0;	
 }
 
