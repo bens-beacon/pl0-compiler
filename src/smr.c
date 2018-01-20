@@ -124,9 +124,8 @@ int bl6()
 /* Abschlussarbeiten									*/
 int pr1()
 {
-	printf(ANSI_COLOR_CYAN " >> pr1!\n");
-
 	/* Konstanten block hate extra Funktion im Codegen */
+	// Löschen der restlichen Prozeduren
 	return OK;									
 }
 
@@ -166,8 +165,6 @@ int st1()
 /* Wertzuweisung RS										*/
 int st2()
 {
-	printf(ANSI_COLOR_CYAN " >> st2!\n");
-
 	code(storeVal);														/* StoreValue							*/
 	return OK;
 }
@@ -175,8 +172,6 @@ int st2()
 /* IF nach Condition									*/
 int st3()
 {
-	printf(ANSI_COLOR_CYAN " >> st3!\n");
-
 	int jn_start = (pCode-vCode)+1;						/* Zeigt jnot Adressesbyte*/
 	pushLabel(jn_start);											/* Add Label							*/
 	code(jnot,0);
@@ -186,7 +181,6 @@ int st3()
 /* IF nach Statement 									*/
 int st4()
 {
-	printf(ANSI_COLOR_CYAN " >> st4!\n");
 	int jn_start = getNjmp();									/* Get JmpNumber					*/
 	int jn_end = pCode-vCode;
 	int n_bytes = jn_end-jn_start-2;
@@ -213,7 +207,6 @@ int st6()
 /* WHILE	nach Statement						*/
 int st7()
 {
-	printf(ANSI_COLOR_CYAN " >> st4!\n");
 	int jn_start = getNjmp();									/* Get JmpNumber					*/
 	int jn_end = pCode-vCode;
 	int n_bytes = jn_end-jn_start+1;
