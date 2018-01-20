@@ -20,8 +20,6 @@ extern char* vCode;
 /* Ist Konstantenname schon vorhanden */
 int bl1()
 {
-	printf(ANSI_COLOR_CYAN " >> bl1! \n");
-
 	tBez* Bez_tmp = searchBEZ(AktProc, Morph.Val.pStr);
 	if(Bez_tmp != NULL)												/* Bez schon vorhanden ?	*/
 	{
@@ -36,8 +34,6 @@ int bl1()
 /* Bezeichner mit Konstante anlegen	  */
 int bl2()
 {
-	printf(ANSI_COLOR_CYAN " >> bl2! \n");
-
 	tConst* Const_tmp = searchConst(Morph.Val.Num);		
 	if(Const_tmp == NULL)											/* Konstenwert vorhanden?	*/
 	{																					/* Nicht Vorhanden, erste */
@@ -55,8 +51,6 @@ int bl2()
 /* Bezeichner mit Variable anlegen 	  */
 int bl3()
 {
-	printf(ANSI_COLOR_CYAN " >> bl3! \n");
-
 	tBez* Bez_tmp = searchBEZ(AktProc, Morph.Val.pStr);
 	if(Bez_tmp != NULL)												/* Bez schon vorhanden ?	*/
 	{
@@ -74,8 +68,6 @@ int bl3()
 /* Bezeichner mit neuen Procedur 		  */
 int bl4()
 {
-	printf(ANSI_COLOR_CYAN " >> bl4!\n");	
-
 	tBez* Bez_tmp = searchBEZ(AktProc, Morph.Val.pStr);
 	if(Bez_tmp != NULL)
 	{
@@ -109,8 +101,6 @@ int bl4()
 /* lösche Prozedur 										*/
 int bl5()
 {
-	printf(ANSI_COLOR_CYAN " >> bl5!\n");	
-
 	code(retProc);
 	tProc* Proc_tmp = AktProc;
 	
@@ -126,8 +116,6 @@ int bl5()
 /* Beginn des Anwesiungsteils					*/
 int bl6()
 {
-	printf(ANSI_COLOR_CYAN " >> bl6!\n");	
-
 	tProc* Proc_tmp = AktProc;
 	code(entryProc,0,Proc_tmp->IdxProc,AktProc->SpzzVar); /* entryproc	*/
 	return OK;
@@ -145,8 +133,6 @@ int pr1()
 /* Wertzuweisung 	LS		PushAdrVar...	*/
 int st1()
 {
-	printf(ANSI_COLOR_CYAN " >> st1!\n");
-
 	tBez * Bez_tmp = globalsearchBEZ(AktProc,Morph.Val.pStr);
 	if( Bez_tmp == NULL)
 	{
@@ -244,8 +230,6 @@ int st7()
 /* Rufe Funktion auf */
 int st8()
 {
-	printf(ANSI_COLOR_CYAN " >> st8!\n");
-	
 	tBez * Bez_tmp = globalsearchBEZ(AktProc,Morph.Val.pStr);
 	if( Bez_tmp == NULL)
 	{
@@ -374,8 +358,6 @@ int fa1()
 /* Faktor anlegen											*/
 int fa2()
 {
-	printf(ANSI_COLOR_CYAN " >> fa2!\n");
-
 	tBez * Bez_tmp = globalsearchBEZ(AktProc,Morph.Val.pStr);
 	if( Bez_tmp == NULL)
 	{
