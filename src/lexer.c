@@ -56,7 +56,11 @@ int initLex(char* fname)
   /* Öffne File und hole erstes Zeichen (fgetc) */
   pIF=fopen(vName,"r+t");
   if (pIF!=NULL) 
-  {X=fgetc(pIF); printf(ANSI_COLOR_GREEN " >> Valid File! \n"); return OK;}
+  {
+    X=fgetc(pIF); 
+    //printf(ANSI_COLOR_GREEN " >> Valid File! \n"); 
+    return OK;
+  }
   printf(ANSI_COLOR_RED " >> Invalid File! \n");
   exit(EXIT_FAILURE);
   return FAIL;

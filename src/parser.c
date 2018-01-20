@@ -220,7 +220,7 @@ int main(int argc, char *argv[])
 	openOFile(pBuf);
 	pars(gProg);
 	closeOFile();	
-
+	printf(ANSI_COLOR_GREEN " >> Successfully compiled! \n");
 	return 0;	
 }
 
