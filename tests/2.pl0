@@ -4,9 +4,12 @@ CONST x = 5;
 VAR a,b,c;
 
 PROCEDURE test;
-VAR w;
+VAR inputa,inputb,output;
 BEGIN
-  ! 11111
+  ? inputa;
+  ? inputb;
+  output := inputa+inputb;
+  ! output
 END;
 
 
@@ -30,7 +33,7 @@ BEGIN
       a := a +1
     END;
 
-  CALL test
+  call test
 
 END
 .

@@ -9,10 +9,13 @@ BEGIN
   ? inputa;
   ? inputb;
   output := inputa+inputb;
-  ! output;
+  ! output
 END;
 
-
+PROCEDURE Berechne;
+BEGIN
+  ! 2
+END;
 
 
 
@@ -30,10 +33,10 @@ BEGIN
   DO
     BEGIN
       ! a;
-      a := a +1;
+      a := a +1
     END;
 
-  call test;
+  call test
 
 END
 .

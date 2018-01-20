@@ -194,8 +194,8 @@ int pars(tBog* pGraph)
 			if (pBog->iAlt != 0) pBog=pGraph+pBog->iAlt;											// Warum wird hier addiert pBog=[pBog->iAlt]
       else 																	/* Fehler Alternative 0		*/
       {
-				printf(ANSI_COLOR_RED " >> Program_Error >> Syntax\n");
-				return 0;												
+				printf(ANSI_COLOR_RED " >> Syntax ERROR! \n");
+				exit(EXIT_FAILURE);											
 			}
     }  
     else 																		/* LEX für nächsten Bogen */				

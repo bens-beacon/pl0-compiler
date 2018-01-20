@@ -8,6 +8,8 @@
 ### Fragen
 
 * Proceduren werden nicht gelöscht. Um nachträgliche bei Call die Nummer zu schreiben. 
+* Syntaxerror by Becksprogramme,... Mal Zeilen und COlum ausgeben....!
+
 
 ### Infos
 
