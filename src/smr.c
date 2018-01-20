@@ -266,7 +266,8 @@ int st8()
 		}
 		else if(Bez_tmp->Kz == KzProc)
 		{
-			code(call,Bez_tmp->IdxProc);			
+			tProc* Proc_tmp = Bez_tmp->pObj;
+			code(call,Proc_tmp->IdxProc);			
 		}		
 	} 	
 	return OK;

@@ -174,7 +174,7 @@ void clear(tProc* Proc)
 	else 
 	{
 		//printf("Löschen - Erfolgreich");
-		free(Proc);															/* Procedur frei geben		*/
+		//free(Proc);															/* Procedur frei geben		*/
 	}
 }
 

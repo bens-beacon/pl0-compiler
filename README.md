@@ -7,7 +7,7 @@
 
 ### Fragen
 
-* Was passiert genau wenn eine Konstante scchon angelegt wurde und nur der Index übernommen werden soll?
+* Proceduren werden nicht gelöscht. Um nachträgliche bei Call die Nummer zu schreiben. 
 
 ### Infos
 
