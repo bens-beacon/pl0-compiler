@@ -1,17 +1,36 @@
-var a,b,Max;
 
-procedure p1;
-begin 
-  a := 3;
-  while a>1 do 
-  begin
-    !3; 
-    a :=a-1  
-  end;
-end
+CONST x = 5;
 
-begin
-  call p1
-  
-end
+VAR a,b,c;
+
+PROCEDURE test;
+VAR w;
+BEGIN
+  ! 11111
+END;
+
+
+
+
+
+
+BEGIN
+  a := 1;
+  b := 2;
+  c := 3;
+
+  IF b < c 
+  THEN
+    !9999999;
+
+  WHILE a < x
+  DO
+    BEGIN
+      ! a;
+      a := a +1
+    END;
+
+  CALL test
+
+END
 .

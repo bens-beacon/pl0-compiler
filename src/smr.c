@@ -98,12 +98,8 @@ int bl4()
 	else
 	{
 		tBez * BezProc = createBezProc(AktProc, Morph.Val.pStr);
-		tProc* Proc_tmp = BezProc->pObj;
-		printf("Neue Proc: %d \n",Proc_tmp->IdxProc);
-		
-		insertend(AktProc->pLBez,BezProc);
-		printf("Prev Proc: %d \n",AktProc->IdxProc);
-		
+		tProc* Proc_tmp = BezProc->pObj;		
+		insertend(AktProc->pLBez,BezProc);		
 		AktProc = Proc_tmp;		
 		
 	}	
@@ -121,7 +117,6 @@ int bl5()
 	if( AktProc->pParent != NULL)
 	{
 		AktProc = Proc_tmp->pParent;						/* ElternProzedur wird akt*/
-		printf("Aktuelle Proc: %d\n",AktProc->IdxProc);
 	}	
 	clear(Proc_tmp);
 	
@@ -135,7 +130,6 @@ int bl6()
 
 	tProc* Proc_tmp = AktProc;
 	code(entryProc,0,Proc_tmp->IdxProc,AktProc->SpzzVar); /* entryproc	*/
-	printf("Aktuelle Proc: %d | SpzzVar: %d\n",Proc_tmp->IdxProc,AktProc->SpzzVar);
 	return OK;
 }
 

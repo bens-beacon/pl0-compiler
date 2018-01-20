@@ -201,7 +201,6 @@ int rmLabel()
 
 int getNjmp()
 {
-	printf(" ajsaidsjidsj");
 	tLabl* tmp_Label = Labellist->last->data;
 	int N = tmp_Label->iJmp;
 	rmLabel();
