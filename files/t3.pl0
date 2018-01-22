@@ -13,7 +13,7 @@ begin
 end;
 
 begin
-  !"Eingabe einer Zahl:";
+  !"Eingabe einer Zahl:<as=12";
   ?a;
   !"Eingabe einer Zahl:";
   ?b;
