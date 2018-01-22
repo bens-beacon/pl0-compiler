@@ -155,7 +155,7 @@ void fb()
     case 10: checkKeyw(); 
     break; 
     /* String --------    */
-    case 9: printf("String");
+    case 9: Morph.Val.pStr=vBuf;			Morph.MC =mcStrin;
     break;
 	}
   End=1;  																	/* Morphem / Token fertig */

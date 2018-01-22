@@ -292,6 +292,13 @@ int st10()
 	return OK;
 }
 
+/* Ausgabe 	String										*/
+int st11()
+{
+	code(putStrg,Morph.Val.pStr);							/* PUTSTR									*/									
+	return OK;
+}
+
 /* Vorzeichen Minus										*/
 int ex1()
 {

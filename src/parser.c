@@ -16,7 +16,7 @@ extern int line, col;												/* Zeile Spalte 					*/
 tBog gProg[]=
 {
 /* 0 */ {BgGr,{(ul)iBlock	}, NULL, 1, 0}, 	/* Block		*/	
-/* 1 */ {BgSy,{(ul)'.'		},  pr1, 2, 0}, 	/* . 			*/	
+/* 1 */ {BgSy,{(ul)'.'		},  pr1, 2, 0}, 	/* . 				*/	
 /* 2 */ {BgEn,{(ul)0			}, NULL, 0, 0}  	/* Ende 		*/	
 };
 /* Block			--------------------------------------- */
@@ -50,7 +50,7 @@ tBog gState[]=
 /* 3 */ {BgSy,{(ul)zBGN		}, NULL,17, 4}, /* BEGIN		*/
 /* 4 */ {BgSy,{(ul)zCLL		}, NULL,20, 5}, /* CALL			*/
 /* 5 */ {BgSy,{(ul)'?'		}, NULL,21, 6}, /*   ?			*/
-/* 6 */ {BgSy,{(ul)'!'		}, NULL,22, 7}, /*   !			*/
+/* 6 */ {BgSy,{(ul)'!'		}, NULL,23, 7}, /*   !			*/
 /* 7 */ {BgNl,{						}, NULL,10, 0}, /* NIL			*/								
 /* 8 */ {BgSy,{(ul)zERG		}, NULL, 9, 0}, /* 	:=			*/ 								
 /* 9 */ {BgGr,{(ul)iExpr	},  st2,10, 0}, /* Expressio*/
@@ -66,7 +66,8 @@ tBog gState[]=
 /*19 */ {BgSy,{(ul)zEND		}, NULL,10,18}, /* END			*/
 /*20 */ {BgMo,{(ul)mcIdent},  st8,10, 0}, /* Ident		*/
 /*21 */ {BgMo,{(ul)mcIdent},  st9,10, 0}, /* Ident		*/
-/*22 */ {BgGr,{(ul)iExpr	}, st10,10, 0}  /* Expressio*/
+/*22 */ {BgGr,{(ul)iExpr	}, st10,10, 0}, /* Expressio*/
+/*23 */ {BgMo,{(ul)mcStrin}, st11,10,22}  /* String		*/
 };
 /* Expression --------------------------------------- */
 tBog gExpr[]=
@@ -159,6 +160,8 @@ int pars(tBog* pGraph)
 		case mcNum: printf("Number: %-5ld",Morph.Val.Num);
 		break;
 		case mcIdent: printf("Ident : %-5s",Morph.Val.pStr); 
+		break;
+		case mcStrin: printf("String: %-5s",Morph.Val.pStr);
 		break;
 	}
 	printf("\n");

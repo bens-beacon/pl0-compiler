@@ -29,7 +29,7 @@
 /* Morphemtyp 						*/
 typedef enum T_MC				
 {
-	mcEmpty, mcSymb, mcNum, mcIdent
+	mcEmpty, mcSymb, mcNum, mcIdent, mcStrin
 }tMC;
 /* Schlüsselwörter 				*/
 typedef enum T_ZS									
