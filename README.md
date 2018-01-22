@@ -1,10 +1,9 @@
 # Compiler für PL0
 
-# Bedienung
+## Bedienung
 
 * mit ``` ./make  ``` Kompiler erstellen
 * mit ``` ./compile file  ``` PL0-Datei kopmelieren
-
 
 ## Was ist noch zu tun?
 
