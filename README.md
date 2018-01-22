@@ -2,13 +2,9 @@
 
 ## Was ist noch zu tun?
 
-* Liste für Label fehlt noch -> Erklärung File Beck.
-* Eindeutige Fehlerbehandlung!
+* nichts ...  
 
 ### Fragen
-
-* Proceduren werden nicht gelöscht. Um nachträgliche bei Call die Nummer zu schreiben. 
-
 
 ### Infos
 

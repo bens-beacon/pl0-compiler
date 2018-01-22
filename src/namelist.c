@@ -169,6 +169,14 @@ void clear(tProc* Proc)
 			free(Bez_tmp->pObj);									/* lösche Objekt					*/				
 			removelast(Proc->pLBez);							/* lösche letzten Bezei		*/		
 			clear(Proc);
+		}
+		else
+		{
+			/* Procs löschen */
+			free(Bez_tmp->pName);									/* lösche Name						*/	
+			free(Bez_tmp->pObj);									/* lösche Objekt					*/				
+			removelast(Proc->pLBez);							/* lösche letzten Bezei		*/	
+			free(Proc);
 		}																
 	}
 	else 
@@ -198,7 +206,7 @@ int rmLabel()
 	removelast(Labellist);
 	return OK;
 }
-
+/* Bekomme die zu übsp Num*/
 int getNjmp()
 {
 	tLabl* tmp_Label = Labellist->last->data;
