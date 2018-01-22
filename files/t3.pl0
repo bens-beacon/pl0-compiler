@@ -5,11 +5,13 @@ begin
   if a>=b then Max:=a;
   if a< b then Max:=b
 end;
+
 procedure p2;
 begin
-  if a<=b then Min:=a;
-  if a> b then Min:=b
+  if a <= b then Min:=a;
+  if a > b then Min :=b
 end;
+
 begin
   !"Eingabe einer Zahl:";
   ?a;

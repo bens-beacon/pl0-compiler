@@ -9,6 +9,7 @@
 tProc* AktProc;															/* Aktuelle Prozedur	 		*/
 tlist* Constblock;													/* Konstanteliste					*/
 tlist* Labellist;														/* Labelkeller						*/
+extern int line, col;												/* Zeile Spalte 					*/
 
 /* ---- BÖGEN ------------------------------------------------------- */
 /* Programm 	--------------------------------------- */
@@ -132,7 +133,7 @@ int pars(tBog* pGraph)
 
 
 
-	/* 
+	
 	// Ausgabe:
 	// Gebe Aktuellen / Folge, Nächsten Bogen und Morphem aus
 	int g= 0;
@@ -161,7 +162,7 @@ int pars(tBog* pGraph)
 		break;
 	}
 	printf("\n");
-	*/
+	
 
 
 		
@@ -195,6 +196,7 @@ int pars(tBog* pGraph)
       else 																	/* Fehler Alternative 0		*/
       {
 				printf(ANSI_COLOR_RED " >> Syntax ERROR! \n");
+				printf(ANSI_COLOR_YELLOW " >> After Line: %d Colum: %d \n",line, col);
 				exit(EXIT_FAILURE);											
 			}
     }  

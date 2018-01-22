@@ -12,7 +12,7 @@ static tMorph MorphInit;										/* ??? */
 extern tMorph Morph;												/* Aktuelles Morphem			*/
 static char   vBuf[1024+1];									/* Ausgabebuffer 					*/
 static char*  pBuf;													/* Pointer Ausgabebuffer 	*/
-static int    line,col;											/* Zeilen, Spaltennr Dok.	*/
+int    line,col;										      	/* Zeilen, Spaltennr Dok.	*/
 static int 		End;
 
 /* ---- Zeichenklassenvector -----------------------------------------*/
