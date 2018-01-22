@@ -1,5 +1,11 @@
 # Compiler für PL0
 
+# Bedienung
+
+* mit ``` ./make  ``` Kompiler erstellen
+* mit ``` ./compile file  ``` PL0-Datei kopmelieren
+
+
 ## Was ist noch zu tun?
 
 ... nichts
@@ -106,8 +112,8 @@ Oder man verwendet das Ausgabeprogramm von Beck.
 ``` ./outCl0 1.cl0  ```
 
 
-### Funktionen
 
+## Funktionen
 
 ### Wichtig
 
