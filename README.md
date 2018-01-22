@@ -2,9 +2,11 @@
 
 ## Was ist noch zu tun?
 
-* nichts ...  
+... nichts
 
 ### Fragen
+
+... keine
 
 ### Infos
 

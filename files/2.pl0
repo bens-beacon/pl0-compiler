@@ -14,7 +14,7 @@ END;
 
 PROCEDURE Berechne;
 BEGIN
-  ! 2;
+  ! "Halloooooooooo";
 END;
 
 
