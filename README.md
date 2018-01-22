@@ -8,13 +8,13 @@
 ### Fragen
 
 * Proceduren werden nicht gelöscht. Um nachträgliche bei Call die Nummer zu schreiben. 
-* Syntaxerror by Becksprogramme,... Mal Zeilen und COlum ausgeben....!
 
 
 ### Infos
 
 * Kann sein das die Konstantenblockgröße nicht übereinstimmt, die geschrieben wird.
 * Statement Bogen 17 ";" kann immer geschrieben werden. Wie in C -> funktioniert bei Becks Copmiler nicht.
+* Stringausgabe funktioniert. Zustand hinzugefügt. BAMMMM!
 
 ## Dateien
 
