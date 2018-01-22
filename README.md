@@ -15,7 +15,6 @@
 
 ### Infos
 
-* Kann sein das die Konstantenblockgröße nicht übereinstimmt, die geschrieben wird.
 * Statement Bogen 17 ";" kann immer geschrieben werden. Wie in C -> funktioniert bei Becks Copmiler nicht.
 * Stringausgabe funktioniert. Zustand hinzugefügt. BAMMMM!
 
