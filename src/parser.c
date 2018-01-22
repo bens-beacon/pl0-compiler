@@ -134,7 +134,7 @@ int pars(tBog* pGraph)
 
 
 
-	
+	/*
 	// Ausgabe:
 	// Gebe Aktuellen / Folge, Nächsten Bogen und Morphem aus
 	int g= 0;
@@ -165,7 +165,7 @@ int pars(tBog* pGraph)
 		break;
 	}
 	printf("\n");
-	
+	*/
 
 
 		
