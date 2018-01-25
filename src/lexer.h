@@ -56,6 +56,7 @@ typedef struct
 /* Prototypen:						*/
 static void fl  (void);
 static void bb  (void);
+static void flb  (void);
 static void fb  (void);
 static void fgl (void);
 static void fsl (void);

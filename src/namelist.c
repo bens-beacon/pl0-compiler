@@ -176,7 +176,7 @@ void clear(tProc* Proc)
 			free(Bez_tmp->pName);									/* lösche Name						*/	
 			free(Bez_tmp->pObj);									/* lösche Objekt					*/				
 			removelast(Proc->pLBez);							/* lösche letzten Bezei		*/	
-			free(Proc);
+			//free(Proc);
 		}																
 	}
 	else 

@@ -31,7 +31,7 @@ static char vZKl[128]=
 /* ---- Automatentabelle ---------------------------------------------*/
 struct vsCon vSMatrx[][10] = {
 /*        So    	  Z      	 Bu      ':'      '='    	 '<'    	'>'   	Space  	  '"'    EOF   */
-/*­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­ 0 */{{0,fslb},{1,fsl },{ 2,fgl },{3,fsl },{0,fslb},{4,fsl },{5,fsl },{0,fl },{9,fsl },{0,bb }},
+/*­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­ 0 */{{0,fslb},{1,fsl },{ 2,fgl },{3,fsl },{0,fslb},{4,fsl },{5,fsl },{0,fl },{9,fl },{0,bb }},
 /* 1 */{{0,fb  },{1,fsl },{ 0,fb  },{0,fb  },{0,fb  },{0,fb  },{0,fb  },{0,fb },{0,fb  },{0,bb }},
 /* 2 */{{0,fb  },{2,fsl },{10,fgl },{0,fb  },{0,fb  },{0,fb  },{0,fb  },{0,fb },{0,fb  },{0,bb }},
 /* 3 */{{0,fb  },{0,fb  },{ 0,fb  },{0,fb  },{6,fsl },{0,fb  },{0,fb  },{0,fb },{0,fb  },{0,bb }},
@@ -40,7 +40,7 @@ struct vsCon vSMatrx[][10] = {
 /* 6 */{{0,fb  },{0,fb  },{ 0,fb  },{0,fb  },{0,fb  },{0,fb  },{0,fb  },{0,fb },{0,fb  },{0,bb }},
 /* 7 */{{0,fb  },{0,fb  },{ 0,fb  },{0,fb  },{0,fb  },{0,fb  },{0,fb  },{0,fb },{0,fb  },{0,bb }},
 /* 8 */{{0,fb  },{0,fb  },{ 0,fb  },{0,fb  },{0,fb  },{0,fb  },{0,fb  },{0,fb },{0,fb  },{0,bb }},
-/* 9 */{{0,fb  },{9,fsl },{ 9,fsl },{9,fsl },{9,fsl },{9,fsl },{9,fsl },{9,fsl},{0,fslb},{0,bb }},
+/* 9 */{{9,fsl },{9,fsl },{ 9,fsl },{9,fsl },{9,fsl },{9,fsl },{9,fsl },{9,fsl},{0,flb },{0,bb }},
 /*10 */{{0,fb  },{0,fb  },{10,fgl },{0,fb  },{0,fb  },{0,fb  },{0,fb  },{0,fb },{0,fb  },{0,bb }}
 };
 
@@ -105,6 +105,12 @@ void fl()
   X=fgetc(pIF);															/* nimm erstes Zeichen 		*/
   if (X=='\n') line++,col=0;
   else col++;
+}
+/* lesen beenden							*/
+void flb()
+{
+  fl();
+  fb();
 }
 /* schreiben (Groß), lesen*/
 void fgl()
