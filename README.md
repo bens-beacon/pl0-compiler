@@ -3,7 +3,7 @@
 ## Bedienung
 
 * mit ``` ./make  ``` Kompiler erstellen
-* mit ``` ./compile file  ``` PL0-Datei kopmelieren
+* mit ``` ./compile file  ``` PL0-Datei kompilieren
 
 ## Was ist noch zu tun?
 
@@ -15,8 +15,8 @@
 
 ### Infos
 
-* Statement Bogen 17 ";" kann immer geschrieben werden. Wie in C -> funktioniert bei Becks Copmiler nicht.
-* Stringausgabe funktioniert. Zustand hinzugefügt. BAMMMM!
+* Statement Bogen 17 ";" kann immer geschrieben werden. 
+* Stringausgabe funktioniert. 
 
 ## Dateien
 
