@@ -3,11 +3,24 @@
  * Code by Ben
  * 
  * FUNKTION:
- * 	Abbruch durch Extrazzeichen (9 -> EOF).
+ *  initLex() liest erstes Zeichen und speichert dies in Variable X. Als 
+ *  nächstes wird LEX() aufgerufen. Das aktuelle Zeichen ist eine Zahl
+ *  zwischen 0 und 127. Im Zeichenklassenvektor bekommt man den 
+ *  richtigen Zustand zurück. Mit diesem Zustand kann nun aus der 
+ *  Automatentabelle, der Folgezeile und die benötigte Funktion aus-
+ *  gelesen werden. Je nach Funktion wird nun das Zeichen in den 
+ *  Speicher geschrieben, ein neues gelesen oder beendet.
+ * 
+ *  Bei der Beendenfunktion fb() wird das Morphem aktuelle Morphem 
+ *  mit den wichtigen Parametern gesetzt. 
+ * 
+ * INFO:
+ * 	Abbruch durch Zeichen 127 -> EOF.
  * 	Schlüsselworterkennung durch Binäre Suche.
- * 	Schlüsselworterkennung erst ab Zeichen 2. Extrazustand 9.
+ * 	Schlüsselworterkennung erst ab Zeichen 2.
  * 	Alles über 128 beendet und gibt Fehler aus.
  * 	Einzelne Buchstaben werden Ignoriert.
+ *  Ident kann '_' und Zahlen beinhalten.
  * 
  */
  
@@ -35,7 +48,7 @@ typedef enum T_MC
 typedef enum T_ZS									
 {
 	zNIL,
-  zERG=128,zLE,zGE,zBGN,zCLL,zCST,zDO,zEND,zIF,zODD,zPRC,zTHN,zVAR,zWHL
+  zERG=128,zLE,zGE,zBGN,zCLL,zCST,zDO,zELSE,zEND,zIF,zODD,zPRC,zTHN,zVAR,zWHL
   /* Start bei 128, zLE ist 129,... */
 }tZS;
 /* Morphem 								*/

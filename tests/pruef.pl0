@@ -1,0 +1,16 @@
+const a = 1, b = 2;
+var x;
+
+BEGIN
+  x := a;
+  IF a > b
+  THEN
+  BEGIN
+  ! "OK"
+  END;
+  
+  ! "das mus auch hin"
+
+END
+
+.

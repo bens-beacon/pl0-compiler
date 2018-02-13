@@ -169,7 +169,7 @@ int st2()
 	return OK;
 }
 
-/* IF nach Condition									*/
+/* Condition													*/
 int st3()
 {
 	int jn_start = (pCode-vCode)+1;						/* Zeigt jnot Adressesbyte*/
@@ -178,7 +178,7 @@ int st3()
 	return OK;
 }
 
-/* IF nach Statement 									*/
+/* Zeigt auf Else oder danach Bereich	*/
 int st4()
 {
 	int jn_start = getNjmp();									/* Get JmpNumber					*/
@@ -187,6 +187,35 @@ int st4()
 	wr2ToCodeAtP(n_bytes,vCode+jn_start);			/* Adresse nachtragen			*/
 	return OK;
 }
+
+/* ELSE nach Statement 								*/
+int st12()
+{
+	code(jmp,0);
+	
+	/* Trage Sprungadresse nach */
+	int jn_start = getNjmp();									/* Get JmpNumber					*/
+	int jn_end = pCode-vCode;
+	int n_bytes = jn_end-jn_start-2;
+	wr2ToCodeAtP(n_bytes,vCode+jn_start);			/* Adresse nachtragen			*/
+
+	/* Neues Label */
+	int jn_start_new = (pCode-vCode)-2;				/* Aktuelle Stelle +1			*/
+	pushLabel(jn_start_new);									/* Label auf YY von JMP		*/
+	return OK;
+}
+
+/* Muss Auf ersten Bereich zeigen	*/
+int st13()
+{
+	int jn_start = getNjmp();									/* Get JmpNumber					*/
+	int jn_end = pCode-vCode;
+	int n_bytes = jn_end-jn_start-2;
+	wr2ToCodeAtP(n_bytes,vCode+jn_start);			/* Adresse nachtragen			*/
+
+	return OK;
+}
+
 
 /* WHILE															*/
 int st5()

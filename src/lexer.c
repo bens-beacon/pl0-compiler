@@ -24,24 +24,24 @@ static char vZKl[128]=
  /*20*/ 7, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,/*20*/
  /*30*/ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 0, 5, 4, 6, 0,/*30*/
  /*40*/ 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,/*40*/
- /*50*/ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0,/*50*/
+ /*50*/ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 2,/*50*/
  /*60*/ 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,/*60*/
- /*70*/ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 9}/*70*/;
+ /*70*/ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0,10}/*70*/;
 
 /* ---- Automatentabelle ---------------------------------------------*/
 struct vsCon vSMatrx[][10] = {
 /*        So    	  Z      	 Bu      ':'      '='    	 '<'    	'>'   	Space  	  '"'    EOF   */
-/*­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­ 0 */{{0,fslb},{1,fsl },{ 2,fgl },{3,fsl },{0,fslb},{4,fsl },{5,fsl },{0,fl },{9,fl },{0,bb }},
-/* 1 */{{0,fb  },{1,fsl },{ 0,fb  },{0,fb  },{0,fb  },{0,fb  },{0,fb  },{0,fb },{0,fb  },{0,bb }},
-/* 2 */{{0,fb  },{2,fsl },{10,fgl },{0,fb  },{0,fb  },{0,fb  },{0,fb  },{0,fb },{0,fb  },{0,bb }},
-/* 3 */{{0,fb  },{0,fb  },{ 0,fb  },{0,fb  },{6,fsl },{0,fb  },{0,fb  },{0,fb },{0,fb  },{0,bb }},
-/* 4 */{{0,fb  },{0,fb  },{ 0,fb  },{0,fb  },{7,fsl },{0,fb  },{0,fb  },{0,fb },{0,fb  },{0,bb }},
-/* 5 */{{0,fb  },{0,fb  },{ 0,fb  },{0,fb  },{8,fsl },{0,fb  },{0,fb  },{0,fb },{0,fb  },{0,bb }},
-/* 6 */{{0,fb  },{0,fb  },{ 0,fb  },{0,fb  },{0,fb  },{0,fb  },{0,fb  },{0,fb },{0,fb  },{0,bb }},
-/* 7 */{{0,fb  },{0,fb  },{ 0,fb  },{0,fb  },{0,fb  },{0,fb  },{0,fb  },{0,fb },{0,fb  },{0,bb }},
-/* 8 */{{0,fb  },{0,fb  },{ 0,fb  },{0,fb  },{0,fb  },{0,fb  },{0,fb  },{0,fb },{0,fb  },{0,bb }},
-/* 9 */{{9,fsl },{9,fsl },{ 9,fsl },{9,fsl },{9,fsl },{9,fsl },{9,fsl },{9,fsl},{0,flb },{0,bb }},
-/*10 */{{0,fb  },{0,fb  },{10,fgl },{0,fb  },{0,fb  },{0,fb  },{0,fb  },{0,fb },{0,fb  },{0,bb }}
+/*­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­ 0 */{{0,fslb},{ 1,fsl },{ 2,fgl },{3,fsl },{0,fslb},{4,fsl },{5,fsl },{0,fl },{9,fl  },{0,bb }},
+/* 1 */{{0,fb  },{ 1,fsl },{10,fgl },{0,fb  },{0,fb  },{0,fb  },{0,fb  },{0,fb },{0,fb  },{0,bb }},
+/* 2 */{{0,fb  },{ 2,fsl },{10,fgl },{0,fb  },{0,fb  },{0,fb  },{0,fb  },{0,fb },{0,fb  },{0,bb }},
+/* 3 */{{0,fb  },{ 0,fb  },{ 0,fb  },{0,fb  },{6,fsl },{0,fb  },{0,fb  },{0,fb },{0,fb  },{0,bb }},
+/* 4 */{{0,fb  },{ 0,fb  },{ 0,fb  },{0,fb  },{7,fsl },{0,fb  },{0,fb  },{0,fb },{0,fb  },{0,bb }},
+/* 5 */{{0,fb  },{ 0,fb  },{ 0,fb  },{0,fb  },{8,fsl },{0,fb  },{0,fb  },{0,fb },{0,fb  },{0,bb }},
+/* 6 */{{0,fb  },{ 0,fb  },{ 0,fb  },{0,fb  },{0,fb  },{0,fb  },{0,fb  },{0,fb },{0,fb  },{0,bb }},
+/* 7 */{{0,fb  },{ 0,fb  },{ 0,fb  },{0,fb  },{0,fb  },{0,fb  },{0,fb  },{0,fb },{0,fb  },{0,bb }},
+/* 8 */{{0,fb  },{ 0,fb  },{ 0,fb  },{0,fb  },{0,fb  },{0,fb  },{0,fb  },{0,fb },{0,fb  },{0,bb }},
+/* 9 */{{9,fsl },{ 9,fsl },{ 9,fsl },{9,fsl },{9,fsl },{9,fsl },{9,fsl },{9,fsl},{0,flb },{0,bb }},
+/*10 */{{0,fb  },{10,fgl },{10,fgl },{0,fb  },{0,fb  },{0,fb  },{0,fb  },{0,fb },{0,fb  },{0,bb }}
 };
 
 /*­­­­ ---- Initialisierung der lexiaklischen Analyse ------------------- ­­­­*/
@@ -70,7 +70,7 @@ int initLex(char* fname)
 /* ---- Lexer ------------------------------------------------------- */
 tMorph* Lex(void)
 {
-  Z=0; 																			/* Anfangszustand 				*/
+  Z=0; 																			/* Anfangszeile   				*/
 	int naeZ;																	/* Folgezustand 					*/
 	End=0;
 	
@@ -94,7 +94,7 @@ tMorph* Lex(void)
 		naeZ = (vSMatrx[Z][vZKl[X&0x7f]]).Zstd;	/* aktueller Zustand 			*/
 		(vSMatrx[Z][vZKl[X&0x7f]]).FX();				/* aktuelle function 			*/
 		Z=naeZ;
-	}while (End==0); //(Z!end)*/
+	}while (End==0);
   return &Morph; 
 }
 
@@ -178,11 +178,11 @@ void bb()
  * Wenn das Wort gefunden wird, gibt er die Stelle in dem KeywordArray
  * zurück. Dann addiert man diese mit dem Erstenzeichen in tZS. So 
  * bekommt man den Keywordcode raus. Falls es nicht gefunden wurde, ist
- * es ein Idetigier.
+ * es ein Ident.
 */
 const char*  Keyw[]= 
 {
-	"BEGIN","CALL","CONST","DO","END","IF","ODD",
+	"BEGIN","CALL","CONST","DO","ELSE","END","IF","ODD",
   "PROCEDURE","THEN","VAR","WHILE"
 };
 /* Teste Zeiket Keyword 	*/
@@ -202,7 +202,7 @@ void checkKeyw()
 	{
 		/* Keyword 						*/
 		Morph.Val.Symb=(long)zBGN+ret;					/* Keywordcodes						*/
-		Morph.MC =mcSymb;
+    Morph.MC =mcSymb;
 	}
 }
 /* binäre Suche 					*/
@@ -219,7 +219,6 @@ int binary_search( const char** M, int n, const char* X)
 		if (n<=0) break;
     mitte = links + ((rechts - links) / 2); /* Bereich halbieren 			*/ 
     if (rechts < links) break; 							/* alles durchsucht				*/
- 
     bool=strcmp(M[mitte],X);								/* gibt -1 0 1 zurück			*/
     if (bool==0) ret=mitte;   							 
     else 
@@ -228,7 +227,6 @@ int binary_search( const char** M, int n, const char* X)
 				links = mitte + 1;    						
     n=(n)/2;
 	}while (bool!=0);
-	
   return ret;
 }
 

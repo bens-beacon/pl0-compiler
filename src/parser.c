@@ -57,7 +57,7 @@ tBog gState[]=
 /*10 */ {BgEn,{(ul)0			}, NULL, 0, 0}, /* Ende 		*/
 /*11 */ {BgGr,{(ul)iCond	},  st3,12, 0}, /* Condition*/
 /*12 */ {BgSy,{(ul)zTHN		}, NULL,13, 0}, /* THEN			*/
-/*13 */ {BgGr,{(ul)iState	},  st4,10, 0}, /* Statement*/
+/*13 */ {BgGr,{(ul)iState	}, NULL,24, 0}, /* Statement*/
 /*14 */ {BgGr,{(ul)iCond	},  st6,15, 0}, /* Condition*/
 /*15 */ {BgSy,{(ul)zDO		}, NULL,16, 0}, /* DO				*/
 /*16 */ {BgGr,{(ul)iState	},  st7,10, 0}, /* Statement*/
@@ -67,7 +67,9 @@ tBog gState[]=
 /*20 */ {BgMo,{(ul)mcIdent},  st8,10, 0}, /* Ident		*/
 /*21 */ {BgMo,{(ul)mcIdent},  st9,10, 0}, /* Ident		*/
 /*22 */ {BgGr,{(ul)iExpr	}, st10,10, 0}, /* Expressio*/
-/*23 */ {BgMo,{(ul)mcStrin}, st11,10,22}  /* String		*/
+/*23 */ {BgMo,{(ul)mcStrin}, st11,10,22}, /* String		*/
+/*24 */ {BgSy,{(ul)zELSE	}, st12,25,25}, /* ELSE	  	*/
+/*25 */ {BgGr,{(ul)iState	}, st13,10, 0}  /* Statement*/
 };
 /* Expression --------------------------------------- */
 tBog gExpr[]=
@@ -134,7 +136,7 @@ int pars(tBog* pGraph)
 
 
 
-	/*
+	
 	// Ausgabe:
 	// Gebe Aktuellen / Folge, Nächsten Bogen und Morphem aus
 	int g= 0;
@@ -165,7 +167,7 @@ int pars(tBog* pGraph)
 		break;
 	}
 	printf("\n");
-	*/
+	
 
 
 		
