@@ -9,9 +9,9 @@
  *  richtigen Zustand zurück. Mit diesem Zustand kann nun aus der 
  *  Automatentabelle, der Folgezeile und die benötigte Funktion aus-
  *  gelesen werden. Je nach Funktion wird nun das Zeichen in den 
- *  Speicher geschrieben, ein neues gelesen oder beendet.
- * 
- *  Bei der Beendenfunktion fb() wird das Morphem aktuelle Morphem 
+ *  Speicher geschrieben, ein neues gelesen oder beendet. Wenn beendet
+ *  wird, dann ist die Zahl nicht die folge Zeile sondern der Fall in 
+ *  der Beendenfunktion fb(). Dort wird das aktuelle Morphem 
  *  mit den wichtigen Parametern gesetzt. 
  * 
  * INFO:
@@ -21,6 +21,7 @@
  * 	Alles über 128 beendet und gibt Fehler aus.
  * 	Einzelne Buchstaben werden Ignoriert.
  *  Ident kann '_' und Zahlen beinhalten.
+ *  Kommentare über eine Zeile sind möglich mit '#'
  * 
  */
  

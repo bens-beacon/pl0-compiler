@@ -216,6 +216,23 @@ int st13()
 	return OK;
 }
 
+/* DO															*/
+int st14()
+{
+	pushLabel(pCode-vCode);										/* Startadresse						*/
+	return OK;
+}
+
+/* nach Condition 								*/
+int st15()
+{
+	int jn_start = getNjmp();									/* Get JmpNumber					*/
+	int jn_end = pCode-vCode;
+	int n_bytes = jn_end-jn_start+1;
+	code(jmp,-n_bytes);
+	return OK;
+}
+
 
 /* WHILE															*/
 int st5()

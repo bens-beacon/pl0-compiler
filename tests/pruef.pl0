@@ -1,16 +1,29 @@
-const a = 1, b = 2;
-var x;
+const a = 4, b = 2;
+var x, z;
 
 BEGIN
-  x := a;
-  IF a > b
-  THEN
-  BEGIN
-  ! "OK"
-  END;
   
-  ! "das mus auch hin"
+  #####################################
+  
+  ! "Ich gebe nun 4 mal was aus:";
+  x := 0;
+  WHILE x < a
+  DO
+    BEGIN
+      ! "Hallo";
+      x := x +1
+    END;
+  
+  ######################################
+  
+  ! "Jetzt will ich 5 mal was ausgeben:";
+  x := 0;
+  DO
+    BEGIN
+      ! "Hallo";  
+      x := x +1;
+    END
+  WHILE x < a;
 
-END
 
-.
+END.

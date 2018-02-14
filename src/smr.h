@@ -47,6 +47,8 @@ int st10();
 int st11();
 int st12();
 int st13();
+int st14();
+int st15();
 
 int ex1();
 int ex2();

@@ -50,7 +50,7 @@ tBog gState[]=
 /* 3 */ {BgSy,{(ul)zBGN		}, NULL,17, 4}, /* BEGIN		*/
 /* 4 */ {BgSy,{(ul)zCLL		}, NULL,20, 5}, /* CALL			*/
 /* 5 */ {BgSy,{(ul)'?'		}, NULL,21, 6}, /*   ?			*/
-/* 6 */ {BgSy,{(ul)'!'		}, NULL,23, 7}, /*   !			*/
+/* 6 */ {BgSy,{(ul)'!'		}, NULL,23,26}, /*   !			*/
 /* 7 */ {BgNl,{						}, NULL,10, 0}, /* NIL			*/								
 /* 8 */ {BgSy,{(ul)zERG		}, NULL, 9, 0}, /* 	:=			*/ 								
 /* 9 */ {BgGr,{(ul)iExpr	},  st2,10, 0}, /* Expressio*/
@@ -69,7 +69,12 @@ tBog gState[]=
 /*22 */ {BgGr,{(ul)iExpr	}, st10,10, 0}, /* Expressio*/
 /*23 */ {BgMo,{(ul)mcStrin}, st11,10,22}, /* String		*/
 /*24 */ {BgSy,{(ul)zELSE	}, st12,25,25}, /* ELSE	  	*/
-/*25 */ {BgGr,{(ul)iState	}, st13,10, 0}  /* Statement*/
+/*25 */ {BgGr,{(ul)iState	}, st13,10, 0}, /* Statement*/
+/*26 */ {BgSy,{(ul)zDO		}, st14,27, 7}, /* DO				*/
+/*27 */ {BgGr,{(ul)iState	}, NULL,28, 0}, /* Statement*/
+/*28 */ {BgSy,{(ul)zWHL		}, NULL,29, 0}, /* WHILE		*/
+/*29 */ {BgGr,{(ul)iCond	}, st15,30, 0}, /* Condition*/
+/*30 */ {BgSy,{(ul)';'		}, NULL,10, 0} /*   ;			*/
 };
 /* Expression --------------------------------------- */
 tBog gExpr[]=
