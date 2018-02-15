@@ -21,7 +21,7 @@
  * 	Alles über 128 beendet und gibt Fehler aus.
  * 	Einzelne Buchstaben werden Ignoriert.
  *  Ident kann '_' und Zahlen beinhalten.
- *  Kommentare über eine Zeile sind möglich mit '#'
+ *  Kommentare wie in  C möglich
  * 
  */
  

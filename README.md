@@ -3,7 +3,9 @@
 ## Bedienung
 
 * mit ``` ./make  ``` Kompiler erstellen
-* mit ``` ./compile file  ``` PL0-Datei kompilieren
+* mit ``` ./compile file.pl0  ``` PL0-Datei kompilieren
+* um Comileroutput zu zeigen ``` ./compile file.pl0  -I ```
+* um Programm auszuführen ``` ./tests/rlinux file.cl0  ```
 
 ## Was ist noch zu tun?
 

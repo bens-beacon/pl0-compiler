@@ -10,6 +10,7 @@ tProc* AktProc;															/* Aktuelle Prozedur	 		*/
 tlist* Constblock;													/* Konstanteliste					*/
 tlist* Labellist;														/* Labelkeller						*/
 extern int line, col;												/* Zeile Spalte 					*/
+int output = 0;															/* parameter um Infos zu 	*/
 
 /* ---- BÖGEN ------------------------------------------------------- */
 /* Programm 	--------------------------------------- */
@@ -74,7 +75,7 @@ tBog gState[]=
 /*27 */ {BgGr,{(ul)iState	}, NULL,28, 0}, /* Statement*/
 /*28 */ {BgSy,{(ul)zWHL		}, NULL,29, 0}, /* WHILE		*/
 /*29 */ {BgGr,{(ul)iCond	}, st15,30, 0}, /* Condition*/
-/*30 */ {BgSy,{(ul)';'		}, NULL,10, 0} /*   ;			*/
+/*30 */ {BgSy,{(ul)';'		}, NULL,10, 0}  /*   ;			*/
 };
 /* Expression --------------------------------------- */
 tBog gExpr[]=
@@ -139,44 +140,40 @@ int pars(tBog* pGraph)
   while(1)
   {
 
-
-
+		/* Ausgabefunktion */
+		if(output == 1)
+		{
+			// Gebe Aktuellen / Folge, Nächsten Bogen und Morphem aus
+			int g= 0;
+			// Finde atuellen Graph 		
+			for(int i=0;i<7;i++){ if (vGr[i] == pBog) Graph=i;}	
 	
-	// Ausgabe:
-	// Gebe Aktuellen / Folge, Nächsten Bogen und Morphem aus
-	int g= 0;
-	// Finde atuellen Graph 		
-	for(int i=0;i<7;i++){ if (vGr[i] == pBog) Graph=i;}	
+			// Finde aktuellen Zustand	
+			tBog *Gra = vGr[Graph];
+			for(g=0;;g++)														
+			{
+				if(Gra[g].iAlt== pBog->iAlt && Gra[g].iNext== pBog->iNext	) break;
+			}
+			// Ausgabe 									
+			printf(ANSI_COLOR_GREEN "");	
+			printf("Graph: %-3d | AkBo: %-2i | (Next: %-2i Alt: %-2i) | ",Graph,g,pBog->iNext,pBog->iAlt); 
+			switch(Morph.MC)
+			{
+				case mcSymb:
+					if(Morph.Val.Symb > 128)  printf("Keywor: %-5s ",Keyw[Morph.Val.Symb-zBGN]);
+					else if (Morph.Val.Symb == 128) printf("Keywor: %-5s ",":=");
+					else printf("Symbol: %-5c ",Morph.Val.Symb);
+				break;
+				case mcNum: printf("Number: %-5ld",Morph.Val.Num);
+				break;
+				case mcIdent: printf("Ident : %-5s",Morph.Val.pStr); 
+				break;
+				case mcStrin: printf("String: %-5s",Morph.Val.pStr);
+				break;
+			}
+			printf("\n");
+		}
 	
-	// Finde aktuellen Zustand	
-	tBog *Gra = vGr[Graph];
-	for(g=0;;g++)														
-	{
-		if(Gra[g].iAlt== pBog->iAlt && Gra[g].iNext== pBog->iNext	) break;
-	}
-	// Ausgabe 									
-	printf(ANSI_COLOR_GREEN "");	
-	printf("Graph: %-3d | AkBo: %-2i | (Next: %-2i Alt: %-2i) | ",Graph,g,pBog->iNext,pBog->iAlt); 
-	switch(Morph.MC)
-	{
-		case mcSymb:
-			if(Morph.Val.Symb > 128)  printf("Keywor: %-5s ",Keyw[Morph.Val.Symb-zBGN]);
-			else if (Morph.Val.Symb == 128) printf("Keywor: %-5s ",":=");
-			else printf("Symbol: %-5c ",Morph.Val.Symb);
-		break;
-		case mcNum: printf("Number: %-5ld",Morph.Val.Num);
-		break;
-		case mcIdent: printf("Ident : %-5s",Morph.Val.pStr); 
-		break;
-		case mcStrin: printf("String: %-5s",Morph.Val.pStr);
-		break;
-	}
-	printf("\n");
-	
-
-
-		
-		
 		
     switch(pBog->BgD)												/* aktuell Bogentyp				*/
     {
@@ -222,6 +219,15 @@ int pars(tBog* pGraph)
 int main(int argc, char *argv[])
 {
 	char *pBuf=argv[1];
+	
+	// aktiviere Ausgabefunktion
+	if (argc > 2)
+	{
+		char *input=argv[2];
+		if(0==strcmp("-I",input)) output =1 ;
+		else printf(ANSI_COLOR_CYAN" >> To Show Compileroutput add '-I'! \n");
+	}
+	
 	initLex(pBuf);														/* Lexer initialisieren 	*/
 	
 	Constblock = createlist();								/* Erstelle Konstantenblo */
