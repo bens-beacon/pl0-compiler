@@ -75,7 +75,7 @@ tBog gState[]=
 /*27 */ {BgGr,{(ul)iState	}, NULL,28, 0}, /* Statement*/
 /*28 */ {BgSy,{(ul)zWHL		}, NULL,29, 0}, /* WHILE		*/
 /*29 */ {BgGr,{(ul)iCond	}, st15,30, 0}, /* Condition*/
-/*30 */ {BgSy,{(ul)';'		}, NULL,10, 0}  /*   ;			*/
+/*30 */ {BgSy,{(ul)';'		}, NULL,10, 0}, /*   ;			*/
 };
 /* Expression --------------------------------------- */
 tBog gExpr[]=

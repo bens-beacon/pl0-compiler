@@ -1,21 +1,24 @@
-var x, y, z;
+var a,b;
 
 BEGIN
- // asdjkfnkfn  
-  /* asdfgh */
+  /* Variablen belegen */
+  a := 1;
+  b := 2;
+  
+  /* IF ELSE */
+  IF a < b
+  THEN
+    ! " A > B"
+  ELSE
+    ! " B > A";
 
+  /* DO WHILE */
+  DO
+    BEGIN
+      ! "Hallo";
+      a := a+1;
+    END
+  WHILE a > 6;
 
-  x := 1;
-  y := 2;
-  z := 3;
-
-  x := 2 + z; 
-
-
-  while x <= 2
-  do
-  begin
-  ! x;
-  end;
 
 END.

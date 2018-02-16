@@ -18,7 +18,10 @@
 ### Infos
 
 * Statement Bogen 17 ";" kann immer geschrieben werden. 
-* Stringausgabe funktioniert. 
+* Stringausgabe funktioniert
+* IF ELSE funktioniert
+* DO WHILE funktioniert, jedoch ist die Bedingung invertiert
+* Kommentare wie in C funktionieren auch 
 
 ## Dateien
 

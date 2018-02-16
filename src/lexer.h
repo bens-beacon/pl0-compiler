@@ -20,7 +20,7 @@
  * 	Schlüsselworterkennung erst ab Zeichen 2.
  * 	Alles über 128 beendet und gibt Fehler aus.
  * 	Einzelne Buchstaben werden Ignoriert.
- *  Ident kann '_' und Zahlen beinhalten.
+ *  Ident kann '-' und Zahlen beinhalten.
  *  Kommentare wie in  C möglich
  * 
  */
