@@ -9,7 +9,7 @@
 
 ## Was ist noch zu tun?
 
-... nichts
+* DO WHILE in DO Until ändern
 
 ### Fragen
 
@@ -20,7 +20,7 @@
 * Statement Bogen 17 ";" kann immer geschrieben werden. 
 * Stringausgabe funktioniert
 * IF ELSE funktioniert
-* DO WHILE funktioniert, jedoch ist die Bedingung invertiert
+* DO While funktioniert, jedoch ist die Bedingung invertiert
 * Kommentare wie in C funktionieren auch 
 
 ## Dateien
@@ -87,25 +87,6 @@ Funktionsbefehl z.B. 1A für entryproc() in die Liste geschrieben und
 alle dazugehörigen Parameter mit angehängt. Die Funktionen findet man 
 im code.h
 
-Beispiel für entryproc - Hauptprozedur:
-
-|--------------------
-| 1A | ?? | 1 | 4 ... 
-|-------------------
-
-1A ... entryproc
-?? ... Anzahl Zeichen später eingetragen
- 1 ... Variablelänge
-
-Beispiel für Variabel speichern
-|--------------
-| 03 | 0000 | ...
-|--------------
-
-03 ... pushvarlocal
-0000 ... Index a
-
-------
 
 Um die die Ausgabedatei anzuschauen, kann man das Programm hexdump verwenden.
 Oder man verwendet das Ausgabeprogramm von Beck. 
@@ -135,10 +116,6 @@ Verschachtelte Conditions werden von innen nach außen abgearbeitet. Für die
 innere Condition steht das Label ganz oben. Das Label besitzt die Zahl 
 die sagt wieviele bytes übersprungen werden müssen um auf die Relativadresse
 zuzugreifen 
-
-| jmp | ...  | ... | jmp | jmpnot |
-    ^-----------------|
-
 
 
 
