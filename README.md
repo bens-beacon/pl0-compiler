@@ -1,5 +1,7 @@
 # Compiler für PL0
 
+Ich habe den PL0-Compiler geschrieben, da dies Teil einer Aufgabe im Studium war. 
+
 ## Bedienung
 
 * mit ``` ./make  ``` Kompiler erstellen
@@ -116,26 +118,3 @@ Verschachtelte Conditions werden von innen nach außen abgearbeitet. Für die
 innere Condition steht das Label ganz oben. Das Label besitzt die Zahl 
 die sagt wieviele bytes übersprungen werden müssen um auf die Relativadresse
 zuzugreifen 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
